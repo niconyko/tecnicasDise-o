@@ -1,35 +1,51 @@
 package ar.com.grupo1.tecnicas.Logging;
 
+import java.util.ArrayList;
+
 
 
 public class Logging implements ILogging{
-	String level;
-	private String format;
-	public void log(String message, Level level, Context context) {
-		// TODO Auto-generated method stub
-		
+	private String level = "";
+	private String format = "";
+	private ArrayList<Target> targets;
+	
+	public Logging(){
+		targets = new ArrayList<Target>();
 	}
+	
+	public void log(String message, String level, Context context) {
+		for (Target target : targets) {
+			target.log(message);
+		}
+	}
+	
 	public void setLevel(String level) {
 		this.level = level;
 	}
+	
 	public String getLevel() {
 		return level;
 	}
+	
 	public void setFormat(String format) {
 		this.format = format;
 	}
+	
 	public String getFormat() {
 		return format;
 	}
+	
 	public void addTarget(Target target) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void removeTarget(Target target) {
-		// TODO Auto-generated method stub
-		
+		if (targets.contains(target)) return;
+		targets.add(target);
 	}
 	
-
-
+	public void removeTarget(Target target) {
+		targets.remove(target);
+	}
+	
+	public int TargetsCount() {
+		return targets.size();
+	}
+	
 }
