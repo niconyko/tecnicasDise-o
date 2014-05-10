@@ -40,19 +40,21 @@ public class LoggingTest {
 		logging.addTarget(consoleTarget);
 		assertEquals(logging.TargetsCount(), 1);
 		
-		ConsoleTarget otherconsoleTarget = new ConsoleTarget();
-		logging.addTarget(otherconsoleTarget);
-		assertEquals(logging.TargetsCount(), 2);
 	}
 
 	@Test
 	public void AddFileTarget() {
 		String target = "target";
-		
+		String anotherTarget = "target2";
 		Logging logging = new Logging();
+
 		FileTarget fileTarget = new FileTarget(target);
 		logging.addTarget(fileTarget);
 		assertEquals(logging.TargetsCount(), 1);
+
+		FileTarget otherFileTarget = new FileTarget(anotherTarget);
+		logging.addTarget(otherFileTarget);
+		assertEquals(logging.TargetsCount(), 2);
 	}
 	
 	@Test
@@ -84,7 +86,19 @@ public class LoggingTest {
 	}
 
 	@Test
-	public void DeleteTarget() {
+	public void CantAddTwoConsoleTargets() {
+	
+		Logging logging = new Logging();
+		ConsoleTarget consoleTarget = new ConsoleTarget();
+		
+		logging.addTarget(consoleTarget);
+		logging.addTarget(consoleTarget);
+		
+		assertEquals(logging.TargetsCount(), 1);
+	}
+
+	@Test
+	public void DeleteFileTarget() {
 		String target = "target";
 		
 		Logging logging = new Logging();
@@ -92,6 +106,18 @@ public class LoggingTest {
 		FileTarget fileTarget = new FileTarget(target);		
 		logging.addTarget(fileTarget);
 		logging.removeTarget(fileTarget);
+		
+		assertEquals(logging.TargetsCount(), 0);
+	}
+
+	@Test
+	public void DeleteConsoleTarget() {
+		
+		Logging logging = new Logging();
+		
+		ConsoleTarget consoleTarget = new ConsoleTarget();		
+		logging.addTarget(consoleTarget);
+		logging.removeTarget(consoleTarget);
 		
 		assertEquals(logging.TargetsCount(), 0);
 	}

@@ -30,4 +30,17 @@ public class Context {
 		return threadName;
 	}
 
+	@Override
+	public boolean equals(Object object){
+		if(!(object instanceof Context)) return false;
+		Context context = (Context) object;
+		return (this.nameMethod == context.GetFileName() && this.lineNumber == context.GetLineNumber()
+				&& this.threadName == context.GetThreadName());	
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.GetLineNumber() % 7;
+	}
+	 
 }

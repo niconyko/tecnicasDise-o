@@ -48,4 +48,16 @@ public class Logging implements ILogging{
 		return targets.size();
 	}
 	
+	@Override
+	public boolean equals(Object object){
+		if(!(object instanceof Logging)) return false;
+		return this == object;	
+	}
+	 
+	@Override
+	public int hashCode() {
+	return this.TargetsCount() % 7;
+	}
+	 
+	
 }

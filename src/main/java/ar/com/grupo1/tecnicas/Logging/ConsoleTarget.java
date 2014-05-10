@@ -7,4 +7,15 @@ public class ConsoleTarget extends Target {
 		System.out.println("logueando consola");
 	}
 
+	@Override
+	public boolean equals(Object object){
+		if(!(object instanceof ConsoleTarget)) return false;
+		return true;	
+	}
+	
+	@Override
+	public int hashCode() {
+		return 1;
+	}
+	 
 }
