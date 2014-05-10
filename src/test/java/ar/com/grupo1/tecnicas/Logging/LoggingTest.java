@@ -83,4 +83,30 @@ public class LoggingTest {
 		assertEquals(logging.TargetsCount(), 1);
 	}
 
+	@Test
+	public void DeleteTarget() {
+		String target = "target";
+		
+		Logging logging = new Logging();
+		
+		FileTarget fileTarget = new FileTarget(target);		
+		logging.addTarget(fileTarget);
+		logging.removeTarget(fileTarget);
+		
+		assertEquals(logging.TargetsCount(), 0);
+	}
+
+	@Test
+	public void DeleteUnexistingTarget() {
+		String target = "target";
+		
+		Logging logging = new Logging();
+		FileTarget fileTarget = new FileTarget(target);
+		
+		logging.addTarget(fileTarget);
+		logging.removeTarget(new ConsoleTarget());
+		
+		assertEquals(logging.TargetsCount(), 1);
+	}
+
 }
