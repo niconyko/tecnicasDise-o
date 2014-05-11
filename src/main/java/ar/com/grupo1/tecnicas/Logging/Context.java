@@ -50,38 +50,18 @@ public class Context {
 	public String getSeparator() {
 		return this.separator;
 	}
-	
-	public String getNameMethod() {
-		return nameMethod;
-	}
-
-	public String getLineNumber() {
-		return lineNumber;
-	}
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public String getThreadName() {
-		return threadName;
-	}
-	
-	public String getLevel() {
-		return level;
-	}
 
 	@Override
 	public boolean equals(Object object){
 		if(!(object instanceof Context)) return false;
 		Context context = (Context) object;
-		return (this.nameMethod == context.getFileName() && this.lineNumber == context.getLineNumber()
-				&& this.threadName == context.getThreadName() && this.level == context.getLevel() );	
+		return (this.nameMethod == context.getData("%F") && this.lineNumber == getData("%L")
+				&& this.threadName == context.getData("%t") && this.level == context.getData("%p") );	
 	}
 	
 	@Override
 	public int hashCode() {
-		return Integer.valueOf(this.getLineNumber()) % 7;
+		return Integer.valueOf(this.getData("%L")) % 7;
 	}
 	 
 }
