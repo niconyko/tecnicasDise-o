@@ -9,20 +9,24 @@ public class Logging implements ILogging{
 	private String format = "";
 	private ArrayList<Target> targets;
 	private Level levelLog;
+	private Context context;
 	
 	public Logging(){
 		targets = new ArrayList<Target>();
 		levelLog = new Level();
 	}
 	
-	public void log(String message, String level, Context context) {
-		System.out.println ("The line number is " + Thread.currentThread().getStackTrace()[2].getLineNumber());
-		System.out.println("The Method name " + Thread.currentThread().getStackTrace()[2].getMethodName());
-		System.out.println("The File name " + Thread.currentThread().getStackTrace()[2].getFileName());
-		System.out.println("The thread name " + Thread.currentThread().getName());
+	public void log(String message, String level) {
+		String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+		int lineNumber = Thread.currentThread().getStackTrace()[2].getLineNumber();
+		String fileName = Thread.currentThread().getStackTrace()[2].getFileName();
+		String getName = Thread.currentThread().getName();
+	
+		context = new Context(methodName, lineNumber, fileName, getName );
+	
 		if( levelLog.isValid(level) ){
 			for (Target target : targets) {
-				target.log(message);
+				target.log(message, context);
 			}
 		}
 	}
