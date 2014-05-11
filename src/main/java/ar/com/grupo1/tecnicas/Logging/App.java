@@ -7,7 +7,7 @@ package ar.com.grupo1.tecnicas.Logging;
 public class App 
 {
     public static void nombreDelMetodo(){
-    	Logging log = new Logging();
+    	Logging log = new Logging("properties");
     	Target consoleTarget = new ConsoleTarget();
     	log.addTarget(consoleTarget);
     	log.log("Hola", "WARN");

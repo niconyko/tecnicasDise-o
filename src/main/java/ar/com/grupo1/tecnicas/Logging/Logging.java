@@ -10,10 +10,12 @@ public class Logging implements ILogging{
 	private ArrayList<Target> targets;
 	private Level levelLog;
 	private Context context;
+	private Configuration config;
 	
-	public Logging(){
+	public Logging (String fileProperties) {
 		targets = new ArrayList<Target>();
 		levelLog = new Level();
+		config = new Configuration(fileProperties);
 	}
 	
 	public void log(String message, String level) {
@@ -22,11 +24,11 @@ public class Logging implements ILogging{
 		String fileName = Thread.currentThread().getStackTrace()[2].getFileName();
 		String getName = Thread.currentThread().getName();
 	
-		context = new Context(methodName, lineNumber, fileName, getName );
+		context = new Context(methodName, lineNumber, fileName, getName, level );
 	
 		if( levelLog.isValid(level) ){
 			for (Target target : targets) {
-				target.log(message, context);
+				target.log(message, context, config);
 			}
 		}
 	}
