@@ -9,17 +9,17 @@ import org.junit.Test;
 public class LoggingTest {
 
 	String format = "this is my output format";
-	
+	private String filename = "./prueba.properties";
 	@Test
 	public void testGetLevel() {
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		logging.setLevel(Level.INFO.toString());
 		assertEquals( Level.INFO.toString(), logging.getLevel());
 	}
 	
 	@Test
 	public void testGetFormat() {
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		logging.setFormat(format);
 		assertEquals( format, logging.getFormat());
 	}
@@ -27,7 +27,7 @@ public class LoggingTest {
 	@Test
 	public void testCreateEmpty() {
 		String emptyValue = "";
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		assertEquals( emptyValue , logging.getFormat() );
 		assertEquals( emptyValue, logging.getLevel());
 		assertEquals( 0, logging.TargetsCount() );
@@ -35,7 +35,7 @@ public class LoggingTest {
 
 	@Test
 	public void testAddConsoleTarget() {
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		logging.addTarget(consoleTarget);
 		assertEquals(1, logging.TargetsCount());
@@ -46,7 +46,7 @@ public class LoggingTest {
 	public void testAddFileTarget() {
 		String target = "target";
 		String anotherTarget = "target2";
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 
 		FileTarget fileTarget = new FileTarget(target);
 		logging.addTarget(fileTarget);
@@ -61,7 +61,7 @@ public class LoggingTest {
 	public void testAddDifferentTargets() {
 		String target = "target";
 		
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 
 		FileTarget fileTarget = new FileTarget(target);
 		logging.addTarget(fileTarget);
@@ -76,7 +76,7 @@ public class LoggingTest {
 	public void testAddTwiceTheSameTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		FileTarget fileTarget = new FileTarget(target);
 		
 		logging.addTarget(fileTarget);
@@ -88,7 +88,7 @@ public class LoggingTest {
 	@Test
 	public void testCantAddTwoConsoleTargets() {
 	
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		
 		logging.addTarget(consoleTarget);
@@ -101,7 +101,7 @@ public class LoggingTest {
 	public void testDeleteFileTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		
 		FileTarget fileTarget = new FileTarget(target);		
 		logging.addTarget(fileTarget);
@@ -113,8 +113,7 @@ public class LoggingTest {
 	@Test
 	public void testDeleteConsoleTarget() {
 		
-		Logging logging = new Logging("properties");
-		
+		Logging logging = new Logging(filename);
 		ConsoleTarget consoleTarget = new ConsoleTarget();		
 		logging.addTarget(consoleTarget);
 		logging.removeTarget(consoleTarget);
@@ -126,7 +125,7 @@ public class LoggingTest {
 	public void testDeleteUnexistingTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging("properties");
+		Logging logging = new Logging(filename);
 		FileTarget fileTarget = new FileTarget(target);
 		
 		logging.addTarget(fileTarget);
