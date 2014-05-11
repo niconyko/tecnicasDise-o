@@ -1,11 +1,5 @@
 package ar.com.grupo1.tecnicas.Logging;
 
-
-import java.util.ArrayList;
-import java.util.ListIterator;
-
-
-
 /**
  * Hello world!
  *

@@ -1,7 +1,6 @@
 package ar.com.grupo1.tecnicas.Logging;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public abstract class Target {
 	protected ArrayList<String> listConfiguration;

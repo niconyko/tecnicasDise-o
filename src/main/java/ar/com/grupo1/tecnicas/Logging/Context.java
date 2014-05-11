@@ -8,7 +8,7 @@ import java.util.Hashtable;
 public class Context {
 
 	private String nameMethod, fileName, threadName, level, message, datePattern, separator, lineNumber;
-	private Hashtable data;
+	private Hashtable<String, String> data;
 	
 	
 	public Context(String level, String message, String datePattern) {
@@ -21,7 +21,7 @@ public class Context {
 		this.datePattern = processDate(datePattern);
 		this.separator = "-";
 		
-		data = new Hashtable();
+		data = new Hashtable<String, String>();
 		loadConfigHash();
 	}
 
