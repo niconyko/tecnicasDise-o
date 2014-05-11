@@ -19,6 +19,7 @@ public class Logging implements ILogging{
 	}
 	
 	public void log(String message, String level) {
+		
 		String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
 		int lineNumber = Thread.currentThread().getStackTrace()[2].getLineNumber();
 		String fileName = Thread.currentThread().getStackTrace()[2].getFileName();

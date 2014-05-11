@@ -5,7 +5,7 @@ public class Context {
 
 	private String nameMethod, fileName, threadName, level;
 	private int lineNumber;
-
+	
 	
 	public Context(String nameMethod, int lineNumber, String fileName, String threadName , String level) {
 		this.nameMethod = nameMethod;
