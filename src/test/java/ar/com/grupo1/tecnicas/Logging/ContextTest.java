@@ -10,26 +10,26 @@ public class ContextTest {
 	int lineNumber = 12;
 	
 	@Test
-	public void GetNameMethod() {
+	public void testGetNameMethod() {
 		Context context = new Context(nameMethod,lineNumber,fileName,threadName);
-		assertEquals(context.GetNameMethod(), nameMethod);
+		assertEquals(nameMethod, context.GetNameMethod());
 	}
 	
 	@Test
-	public void GetLineNumber() {
+	public void testGetLineNumber() {
 		Context context = new Context(nameMethod,lineNumber,fileName,threadName);
-		assertEquals(context.GetLineNumber(), lineNumber);
+		assertEquals( lineNumber, context.GetLineNumber());
 	}
 	
 	@Test
-	public void GetFileName() {
+	public void testGetFileName() {
 		Context context = new Context(nameMethod,lineNumber,fileName,threadName);
-		assertEquals(context.GetFileName(), fileName);
+		assertEquals( fileName, context.GetFileName());
 	}
 	
 	@Test
-	public void GetThreadName() {
+	public void testGetThreadName() {
 		Context context = new Context(nameMethod,lineNumber,fileName,threadName);
-		assertEquals(context.GetThreadName(), threadName);	
+		assertEquals(threadName, context.GetThreadName() );	
 	}
 }
