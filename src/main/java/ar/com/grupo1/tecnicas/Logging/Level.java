@@ -26,7 +26,7 @@ public class Level {
 	}
 	
 	public boolean isValid( String level ){
-		if( levelLog < listLevel.indexOf(level))
+		if( levelLog <= listLevel.indexOf(level))
 			return true;
 		return false;
 	}
