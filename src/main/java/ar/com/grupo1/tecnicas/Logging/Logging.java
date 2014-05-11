@@ -8,19 +8,24 @@ public class Logging implements ILogging{
 	private String level = "";
 	private String format = "";
 	private ArrayList<Target> targets;
+	private Level levelLog;
 	
 	public Logging(){
 		targets = new ArrayList<Target>();
+		levelLog = new Level();
 	}
 	
 	public void log(String message, String level, Context context) {
-		for (Target target : targets) {
-			target.log(message);
+		if( levelLog.isValid(level) ){
+			for (Target target : targets) {
+				target.log(message);
+			}
 		}
 	}
 	
 	public void setLevel(String level) {
 		this.level = level;
+		levelLog.setLevel(level);
 	}
 	
 	public String getLevel() {
@@ -56,7 +61,7 @@ public class Logging implements ILogging{
 	 
 	@Override
 	public int hashCode() {
-	return this.TargetsCount() % 7;
+		return this.TargetsCount() % 7;
 	}
 	 
 	
