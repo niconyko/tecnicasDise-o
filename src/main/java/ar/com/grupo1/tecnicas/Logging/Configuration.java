@@ -7,14 +7,13 @@ public class Configuration {
 	private ParserFileProperties parser;
 	private ArrayList<String> listConfiguration;
 	
-	
 	public Configuration(String fileProperties){
 		parser = new ParserFileProperties( fileProperties );
 		listConfiguration = parser.parser();
 	}
 	
 	public ArrayList<String> getConfiguration(){		
-			return listConfiguration;
+		return listConfiguration;
 	}
 	
 	public String getDatePattern(){

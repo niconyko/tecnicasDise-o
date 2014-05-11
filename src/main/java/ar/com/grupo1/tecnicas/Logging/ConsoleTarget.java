@@ -4,11 +4,8 @@ public class ConsoleTarget extends Target {
 
 	@Override
 	void log(Context context, Configuration configuration) {
-		
-		System.out.println( context.getNameMethod() );
-		System.out.println( context.getLineNumber() );
-		System.out.println( context.getFileName() );
-		System.out.println( context.getThreadName() );
+		String finalString = this.generateMessage(context, configuration);
+		System.out.println(finalString);
 	}
 
 	@Override

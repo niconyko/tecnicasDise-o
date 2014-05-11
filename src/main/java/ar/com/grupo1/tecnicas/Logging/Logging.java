@@ -19,7 +19,7 @@ public class Logging implements ILogging{
 	}
 	
 	public void log(String message, String level) {
-		context = new Context(level, message);
+		context = new Context(level, message, config.getDatePattern());
 	
 		if( levelLog.isValid(level) ){
 			for (Target target : targets) {
