@@ -19,16 +19,11 @@ public class Logging implements ILogging{
 	}
 	
 	public void log(String message, String level) {
-		String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
-		int lineNumber = Thread.currentThread().getStackTrace()[2].getLineNumber();
-		String fileName = Thread.currentThread().getStackTrace()[2].getFileName();
-		String getName = Thread.currentThread().getName();
-	
-		context = new Context(methodName, lineNumber, fileName, getName, level );
+		context = new Context(level, message);
 	
 		if( levelLog.isValid(level) ){
 			for (Target target : targets) {
-				target.log(message, context, config);
+				target.log(context, config);
 			}
 		}
 	}

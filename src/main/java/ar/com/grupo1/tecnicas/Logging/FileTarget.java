@@ -9,7 +9,7 @@ public class FileTarget extends Target{
 	}
 	
 	@Override
-	void log(String message, Context context, Configuration configuration) {
+	void log(Context context, Configuration configuration) {
 		System.out.println("Logueando file");
 	}
 	

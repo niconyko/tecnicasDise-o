@@ -3,16 +3,17 @@ package ar.com.grupo1.tecnicas.Logging;
 
 public class Context {
 
-	private String nameMethod, fileName, threadName, level;
+	private String nameMethod, fileName, threadName, level, message;
 	private int lineNumber;
 
 	
-	public Context(String nameMethod, int lineNumber, String fileName, String threadName , String level) {
-		this.nameMethod = nameMethod;
-		this.lineNumber = lineNumber;
-		this.fileName = fileName;
-		this.threadName = threadName;
+	public Context(String level, String message) {
+		this.nameMethod = Thread.currentThread().getStackTrace()[3].getMethodName();;
+		this.lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+		this.fileName = Thread.currentThread().getStackTrace()[3].getFileName();
+		this.threadName = Thread.currentThread().getName();
 		this.level = level;
+		this.message = message;
 	}
 
 	public String getNameMethod() {

@@ -3,7 +3,7 @@ package ar.com.grupo1.tecnicas.Logging;
 public class ConsoleTarget extends Target {
 
 	@Override
-	void log(String message, Context context, Configuration configuration) {
+	void log(Context context, Configuration configuration) {
 		
 		System.out.println( context.getNameMethod() );
 		System.out.println( context.getLineNumber() );
