@@ -1,6 +1,6 @@
 package ar.com.grupo1.tecnicas.Logging;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.ListIterator;
 

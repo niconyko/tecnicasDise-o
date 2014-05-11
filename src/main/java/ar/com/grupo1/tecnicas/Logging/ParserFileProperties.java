@@ -15,7 +15,7 @@ public class ParserFileProperties {
 
 	private String filename;
 	private ArrayList<String> listConf;
-	
+	private String datePattern = null; 
 	
 	public ParserFileProperties(String fileProperties){
 		filename = fileProperties;
@@ -24,6 +24,7 @@ public class ParserFileProperties {
 	
 	
 	public ArrayList<String> parser(){
+		
 		File archivo = new File( filename );
 		FileReader fr = null;
 		try {
@@ -46,9 +47,9 @@ public class ParserFileProperties {
 	    		char caracter = linea.charAt(1);
 	    		if( caracter == 'd' ){
 	    			String subString = linea.substring(0,2);
-	            	String subString1 = linea.substring(3, (linea.length()- 1) );
+	    			datePattern = linea.substring(3, (linea.length()- 1) );
 	            	listConf.add(subString);
-	            	listConf.add(subString1);
+	            	 
 	            }
 	            else{
 	            	listConf.add(linea);	            		
@@ -71,6 +72,10 @@ public class ParserFileProperties {
 		}
 	    
 	    return listConf;
+	}
+	
+	public String getDatePattern(){
+		return datePattern;
 	}
 
 }
