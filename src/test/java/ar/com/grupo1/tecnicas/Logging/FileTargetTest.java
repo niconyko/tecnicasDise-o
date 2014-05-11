@@ -7,10 +7,10 @@ import org.junit.Test;
 public class FileTargetTest {
 
 	@Test
-	public void getDestination() {
+	public void testGetDestination() {
 		String destination = "my destination";
 		FileTarget fileTarget = new FileTarget(destination);
-		assertEquals(fileTarget.getTargetDestination(), destination);
+		assertEquals( destination, fileTarget.getTargetDestination() );
 	}
 
 }

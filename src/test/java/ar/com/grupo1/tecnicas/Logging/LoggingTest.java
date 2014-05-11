@@ -11,39 +11,39 @@ public class LoggingTest {
 	String format = "this is my output format";
 	
 	@Test
-	public void getLevel() {
+	public void testGetLevel() {
 		Logging logging = new Logging();
 		logging.setLevel(Level.INFO.toString());
-		assertEquals(logging.getLevel(), Level.INFO.toString());
+		assertEquals( Level.INFO.toString(), logging.getLevel());
 	}
 	
 	@Test
-	public void getFormat() {
+	public void testGetFormat() {
 		Logging logging = new Logging();
 		logging.setFormat(format);
-		assertEquals(logging.getFormat(), format);
+		assertEquals( format, logging.getFormat());
 	}
 	
 	@Test
-	public void CreateEmpty() {
+	public void testCreateEmpty() {
 		String emptyValue = "";
 		Logging logging = new Logging();
-		assertEquals(logging.getFormat(), emptyValue);
-		assertEquals(logging.getLevel(), emptyValue);
-		assertEquals(logging.TargetsCount(), 0);
+		assertEquals( emptyValue , logging.getFormat() );
+		assertEquals( emptyValue, logging.getLevel());
+		assertEquals( 0, logging.TargetsCount() );
 	}
 
 	@Test
-	public void AddConsoleTarget() {
+	public void testAddConsoleTarget() {
 		Logging logging = new Logging();
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		logging.addTarget(consoleTarget);
-		assertEquals(logging.TargetsCount(), 1);
+		assertEquals(1, logging.TargetsCount());
 		
 	}
 
 	@Test
-	public void AddFileTarget() {
+	public void testAddFileTarget() {
 		String target = "target";
 		String anotherTarget = "target2";
 		Logging logging = new Logging();
@@ -54,11 +54,11 @@ public class LoggingTest {
 
 		FileTarget otherFileTarget = new FileTarget(anotherTarget);
 		logging.addTarget(otherFileTarget);
-		assertEquals(logging.TargetsCount(), 2);
+		assertEquals(2, logging.TargetsCount());
 	}
 	
 	@Test
-	public void AddDifferentTargets() {
+	public void testAddDifferentTargets() {
 		String target = "target";
 		
 		Logging logging = new Logging();
@@ -69,11 +69,11 @@ public class LoggingTest {
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		logging.addTarget(consoleTarget);
 		
-		assertEquals(logging.TargetsCount(), 2);
+		assertEquals(2, logging.TargetsCount());
 	}
 	
 	@Test
-	public void AddTwiceTheSameTarget() {
+	public void testAddTwiceTheSameTarget() {
 		String target = "target";
 		
 		Logging logging = new Logging();
@@ -82,11 +82,11 @@ public class LoggingTest {
 		logging.addTarget(fileTarget);
 		logging.addTarget(fileTarget);
 		
-		assertEquals(logging.TargetsCount(), 1);
+		assertEquals(1, logging.TargetsCount());
 	}
 
 	@Test
-	public void CantAddTwoConsoleTargets() {
+	public void testCantAddTwoConsoleTargets() {
 	
 		Logging logging = new Logging();
 		ConsoleTarget consoleTarget = new ConsoleTarget();
@@ -94,11 +94,11 @@ public class LoggingTest {
 		logging.addTarget(consoleTarget);
 		logging.addTarget(consoleTarget);
 		
-		assertEquals(logging.TargetsCount(), 1);
+		assertEquals( 1, logging.TargetsCount());
 	}
 
 	@Test
-	public void DeleteFileTarget() {
+	public void testDeleteFileTarget() {
 		String target = "target";
 		
 		Logging logging = new Logging();
@@ -107,11 +107,11 @@ public class LoggingTest {
 		logging.addTarget(fileTarget);
 		logging.removeTarget(fileTarget);
 		
-		assertEquals(logging.TargetsCount(), 0);
+		assertEquals(0, logging.TargetsCount());
 	}
 
 	@Test
-	public void DeleteConsoleTarget() {
+	public void testDeleteConsoleTarget() {
 		
 		Logging logging = new Logging();
 		
@@ -119,11 +119,11 @@ public class LoggingTest {
 		logging.addTarget(consoleTarget);
 		logging.removeTarget(consoleTarget);
 		
-		assertEquals(logging.TargetsCount(), 0);
+		assertEquals(0, logging.TargetsCount());
 	}
 
 	@Test
-	public void DeleteUnexistingTarget() {
+	public void testDeleteUnexistingTarget() {
 		String target = "target";
 		
 		Logging logging = new Logging();
@@ -132,7 +132,7 @@ public class LoggingTest {
 		logging.addTarget(fileTarget);
 		logging.removeTarget(new ConsoleTarget());
 		
-		assertEquals(logging.TargetsCount(), 1);
+		assertEquals(1, logging.TargetsCount());
 	}
 
 }
