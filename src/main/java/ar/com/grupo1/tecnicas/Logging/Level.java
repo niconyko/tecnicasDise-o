@@ -8,7 +8,7 @@ public class Level {
 	private ArrayList<String> listLevel;
 	private int levelLog;
 	
-	public Level() {
+	public Level(String filterLevel) {
 		listLevel = new ArrayList<String>();
 		listLevel.add("DEBUG");
 		listLevel.add("INFO");
@@ -17,7 +17,7 @@ public class Level {
 		listLevel.add("FATAL");
 		listLevel.add("OFF");
 		
-		levelLog = 0;
+		setLevel(filterLevel);
 	} 
 	
 	public void setLevel(String level){

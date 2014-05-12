@@ -9,7 +9,7 @@ import org.junit.Test;
 public class LoggingTest {
 
 	String format = "this is my output format";
-	private String filename = "./prueba.properties";
+	private String filename = "./prueba.properties2";
 	@Test
 	public void testGetLevel() {
 		Logging logging = new Logging(filename);

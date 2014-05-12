@@ -11,8 +11,11 @@ public abstract class Target {
 		
 		for (String key : dataList) {
 			finalString += context.getData(key);
-			finalString += context.getSeparator();
+			finalString += context.getDelimeter();
 		}
+		
+		// Elimina el ultimo delimeter
+		finalString = finalString.substring(0, finalString.length() - 1);
 		
 		return finalString;
 	}

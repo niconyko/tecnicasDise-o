@@ -8,7 +8,7 @@ public class Configuration {
 	private ArrayList<String> listConfiguration;
 	
 	public Configuration(String fileProperties){
-		parser = new ParserFileProperties( fileProperties );
+		parser = new ParserFileProperties(fileProperties);
 		listConfiguration = parser.parser();
 	}
 	
@@ -18,5 +18,13 @@ public class Configuration {
 	
 	public String getDatePattern(){
 		return parser.getDatePattern();
+	}
+	
+	public String getDelimeter() {
+		return parser.getDelimeter();
+	}
+	
+	public String getFilterLevel() {
+		return parser.getFilterLevel();
 	}
 }

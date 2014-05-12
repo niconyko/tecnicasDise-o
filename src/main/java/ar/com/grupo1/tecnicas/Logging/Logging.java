@@ -3,7 +3,6 @@ package ar.com.grupo1.tecnicas.Logging;
 import java.util.ArrayList;
 
 
-
 public class Logging implements ILogging{
 	private String level = "";
 	private String format = "";
@@ -14,14 +13,14 @@ public class Logging implements ILogging{
 	
 	public Logging (String fileProperties) {
 		targets = new ArrayList<Target>();
-		levelLog = new Level();
 		config = new Configuration(fileProperties);
+		levelLog = new Level(config.getFilterLevel() );
 	}
 	
 	public void log(String message, String level) {
-		context = new Context(level, message, config.getDatePattern());
+		context = new Context(level, message, config.getDatePattern(), config.getDelimeter());
 	
-		if( levelLog.isValid(level) ){
+		if(levelLog.isValid(level) ){
 			for (Target target : targets) {
 				target.log(context, config);
 			}

@@ -7,11 +7,11 @@ import java.util.Hashtable;
 
 public class Context {
 
-	private String nameMethod, fileName, threadName, level, message, datePattern, separator, lineNumber;
+	private String nameMethod, fileName, threadName, level, message, datePattern, delimeter, lineNumber;
 	private Hashtable<String, String> data;
 	
 	
-	public Context(String level, String message, String datePattern) {
+	public Context(String level, String message, String datePattern, String delimeter) {
 		this.nameMethod = Thread.currentThread().getStackTrace()[3].getMethodName();
 		this.lineNumber = String.valueOf(Thread.currentThread().getStackTrace()[3].getLineNumber());
 		this.fileName = Thread.currentThread().getStackTrace()[3].getFileName();
@@ -19,14 +19,14 @@ public class Context {
 		this.level = level;
 		this.message = message;
 		this.datePattern = processDate(datePattern);
-		this.separator = "-";
+		this.delimeter = delimeter;
 		
 		data = new Hashtable<String, String>();
 		loadConfigHash();
 	}
 
 	private String processDate(String datePattern) {
-		if(datePattern == null) return null;
+		if(datePattern == null) return "";
 		SimpleDateFormat date = new SimpleDateFormat(datePattern);
 		return date.format(new Date());
 	}
@@ -37,7 +37,7 @@ public class Context {
 		data.put("%t", this.threadName);
 		data.put("%m", this.message);
 		data.put("%%", "%");
-		data.put("%n", this.separator);
+		data.put("%n", this.delimeter);
 		data.put("%L", this.lineNumber);
 		data.put("%F", this.fileName);
 		data.put("%M", this.nameMethod);
@@ -47,8 +47,8 @@ public class Context {
 		return (String) data.get(key);
 	}
 	
-	public String getSeparator() {
-		return this.separator;
+	public String getDelimeter() {
+		return this.delimeter;
 	}
 
 	@Override

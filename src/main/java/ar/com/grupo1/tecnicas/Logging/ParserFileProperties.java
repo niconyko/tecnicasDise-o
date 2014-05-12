@@ -1,81 +1,89 @@
 package ar.com.grupo1.tecnicas.Logging;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.Properties;
 
 
 public class ParserFileProperties {
 
-
-
 	private String filename;
 	private ArrayList<String> listConf;
-	private String datePattern = null; 
+	private String datePattern = null;
+	private String delimeter = "-";
+	private String level = "0";
 	
 	public ParserFileProperties(String fileProperties){
 		filename = fileProperties;
-		listConf = new ArrayList<String>();
 	}
 	
+	private void processDatePattern() {
+		for (int i = 0; i < listConf.size(); i++) {
+			String field = listConf.get(i);
+			char caracter = field.charAt(1);
+    		if( caracter == 'd' ){
+    			String shortField = field.substring(0,2);
+    			datePattern = field.substring(3, (field.length() - 1) );
+            	listConf.set(i, shortField);
+    		}
+		}
+	}
 	
-	public ArrayList<String> parser(){
-		
-		File archivo = new File( filename );
-		FileReader fr = null;
-		try {
-			fr = new FileReader (archivo);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	    BufferedReader br = new BufferedReader(fr); 
+	private void processFormat(Properties prop) {
+		String format = prop.getProperty("format");
+		listConf = new ArrayList<String>(Arrays.asList(format.split(" ")));
+		processDatePattern();
+	}
+	
+	private void processDelimeter(Properties prop) {
+		String readDelimeter = prop.getProperty("delimeter");
+		if (readDelimeter == null) return;
+		this.delimeter = readDelimeter;
+	}
+	
+	private void processLevel(Properties prop) {
+		String readLevel = prop.getProperty("level");
+		if (readLevel == null) return;
+		this.level = readLevel;
+	}
+	
+	public ArrayList<String> parser() {
+	
+		Properties prop = new Properties();
+		InputStream input = null;
 	 
-	    String linea = null;
 		try {
-			linea = br.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			input = new FileInputStream(filename);
+			prop.load(input);
+			processFormat(prop);
+			processDelimeter(prop);
+			processLevel(prop);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-	    while( linea != null){
-	    	if(linea.length() > 1){
-	    		char caracter = linea.charAt(1);
-	    		if( caracter == 'd' ){
-	    			String subString = linea.substring(0,2);
-	    			datePattern = linea.substring(3, (linea.length()- 1) );
-	            	listConf.add(subString);
-	            	 
-	            }
-	            else{
-	            	listConf.add(linea);	            		
-	            		
-	            }
-	       }
-	       try {
-				linea = br.readLine();
-				
-	        } catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-	        }
-	    }
-	    try {
-			br.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-	    return listConf;
+		return listConf;
 	}
 	
 	public String getDatePattern(){
-		return datePattern;
+		return this.datePattern;
 	}
 
+	public String getDelimeter() {
+		return this.delimeter;
+	}
+	
+	public String getFilterLevel() {
+		return this.level;
+	}
 }
