@@ -32,10 +32,23 @@ public class ParserFileProperties {
 		}
 	}
 	
+	private ArrayList<String> getformatFields(String format){
+		return new ArrayList<String>(Arrays.asList(format.split(" ")));
+	}
+	
+	private void TranslateFormatIntoPattern(String format){
+		listConf = getformatFields(format);
+		processDatePattern();
+	}
+	
 	private void processFormat(Properties prop) {
 		String format = prop.getProperty("format");
-		listConf = new ArrayList<String>(Arrays.asList(format.split(" ")));
-		processDatePattern();
+		TranslateFormatIntoPattern(format);
+	}
+	
+	public ArrayList<String> setFormat(String format){
+		TranslateFormatIntoPattern(format);
+		return listConf;
 	}
 	
 	private void processDelimeter(Properties prop) {

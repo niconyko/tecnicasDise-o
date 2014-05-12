@@ -16,6 +16,11 @@ public class Configuration {
 		return listConfiguration;
 	}
 	
+	public void setOutputFormat(String format){		
+		listConfiguration = parser.setFormat(format);
+
+	}
+	
 	public String getDatePattern(){
 		return parser.getDatePattern();
 	}

@@ -12,6 +12,7 @@ public class App
     	log.addTarget(consoleTarget);
     	Target fileTarget = new FileTarget("myTarget.log");
     	log.addTarget(fileTarget);
+    	log.setFormat("%p %t %% %n %F %M %d{HH:mm:ss} %L %m");
     	log.log("Hola", "WARN");
     	
     }

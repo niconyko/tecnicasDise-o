@@ -38,6 +38,7 @@ public class Logging implements ILogging{
 	
 	public void setFormat(String format) {
 		this.format = format;
+		config.setOutputFormat(format);
 	}
 	
 	public String getFormat() {
