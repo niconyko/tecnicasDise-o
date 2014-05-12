@@ -10,6 +10,8 @@ public class App
     	Logging log = new Logging("./prueba.properties2");
     	Target consoleTarget = new ConsoleTarget();
     	log.addTarget(consoleTarget);
+    	Target fileTarget = new FileTarget("myTarget.log");
+    	log.addTarget(fileTarget);
     	log.log("Hola", "WARN");
     	
     }

@@ -1,5 +1,9 @@
 package ar.com.grupo1.tecnicas.Logging;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 public class FileTarget extends Target{
 
 	String destination;
@@ -10,7 +14,12 @@ public class FileTarget extends Target{
 	
 	@Override
 	void log(Context context, Configuration configuration) {
-		System.out.println("Logueando file");
+		String message = this.generateMessage(context, configuration);
+		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(destination, true)))) {
+		    out.println(message);
+		}catch (Exception e) {
+			//handel exception
+		};
 	}
 	
 	public String getTargetDestination(){
