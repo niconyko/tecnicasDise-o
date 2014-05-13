@@ -31,4 +31,12 @@ public class LevelTest{
 		assert( ! level.isValid(particularLevel) );
 	}
 	
+	@Test
+	public void testSetLevelAndTheLevelIsValidWithEqualLevel() {
+		Level level = new Level("0");
+		String particularLevel = "WARN";
+		level.setLevel("WARN");		
+		assert(  level.isValid(particularLevel) );
+	}
+	
 }
