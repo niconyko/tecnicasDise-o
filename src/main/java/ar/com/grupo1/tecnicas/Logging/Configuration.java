@@ -18,7 +18,6 @@ public class Configuration {
 	
 	public void setOutputFormat(String format){		
 		listConfiguration = parser.setFormat(format);
-
 	}
 	
 	public String getDatePattern(){
@@ -31,5 +30,13 @@ public class Configuration {
 	
 	public String getFilterLevel() {
 		return parser.getFilterLevel();
+	}
+	
+	public void setDelimeter(String delimeter) {
+		parser.setDelimeter(delimeter);
+	}
+	
+	public void setFilterLevel(String level) {
+		parser.setFilterLevel(level);
 	}
 }

@@ -133,5 +133,14 @@ public class LoggingTest {
 		
 		assertEquals(1, logging.TargetsCount());
 	}
+	
+	@Test
+	public void SetDelimiter() {
+		String delimeter = ";";
+		Logging logging = new Logging(filename);
+		logging.setDelimeter(delimeter);
+		assertEquals(logging.getDelimeter(),delimeter);
+	}
+
 
 }

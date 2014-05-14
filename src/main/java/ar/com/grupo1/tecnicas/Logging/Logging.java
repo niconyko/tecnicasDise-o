@@ -35,7 +35,15 @@ public class Logging implements ILogging{
 	public String getLevel() {
 		return level;
 	}
-	
+
+	public String getDelimeter() {
+		return config.getDelimeter();
+	}
+
+	public void setDelimeter(String delimeter) {
+		config.setDelimeter(delimeter);
+	}
+
 	public void setFormat(String format) {
 		this.format = format;
 		config.setOutputFormat(format);
