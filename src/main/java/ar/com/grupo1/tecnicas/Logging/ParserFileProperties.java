@@ -99,4 +99,12 @@ public class ParserFileProperties {
 	public String getFilterLevel() {
 		return this.level;
 	}
+	
+	public void setDelimeter(String delimeter) {
+		this.delimeter = delimeter;
+	}
+	
+	public void setFilterLevel(String level) {
+		this.level = level;
+	}
 }
