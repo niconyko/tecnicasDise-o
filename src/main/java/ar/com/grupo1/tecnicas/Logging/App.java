@@ -6,6 +6,8 @@ package ar.com.grupo1.tecnicas.Logging;
  */
 public class App 
 {
+	
+	
     public static void nombreDelMetodo(){
     	Logging log = new Logging("./prueba.properties2");
     	Target consoleTarget = new ConsoleTarget();

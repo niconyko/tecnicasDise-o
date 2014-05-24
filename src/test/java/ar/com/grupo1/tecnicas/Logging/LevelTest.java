@@ -10,30 +10,29 @@ public class LevelTest{
 	
 	@Test
 	public void testIfLevelIsValid() {
-		Level level = new Level("0");
+		Level level = new Level("DEBUG");
 		String particularLevel = "DEBUG";
 		assert( level.isValid(particularLevel) );
 	}
 	
 	@Test
 	public void testSetLevelAndTheLevelIsValid() {
-		Level level = new Level("0");
+		Level level = new Level("WARN");
 		String particularLevel = "ERROR";
-		level.setLevel("WARN");		
+			
 		assert( level.isValid(particularLevel) );
 	}
 	
 	@Test
 	public void testSetLevelAndTheLevelIsInvalid() {
-		Level level = new Level("0");
+		Level level = new Level("OFF");	
 		String particularLevel = "ERROR";
-		level.setLevel("OFF");		
 		assert( ! level.isValid(particularLevel) );
 	}
 	
 	@Test
 	public void testSetLevelAndTheLevelIsValidWithEqualLevel() {
-		Level level = new Level("0");
+		Level level = new Level("DEBUG");
 		String particularLevel = "WARN";
 		level.setLevel("WARN");		
 		assert(  level.isValid(particularLevel) );
