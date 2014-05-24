@@ -17,6 +17,7 @@ public class FileTarget extends Target{
 		String message = context.generateMessage(configuration);
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(destination, true)))) {
 		    out.println(message);
+		    out.close();
 		}catch (Exception e) {
 			//handel exception
 		};

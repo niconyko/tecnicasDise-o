@@ -21,14 +21,16 @@ public class ParserFileProperties {
 	}
 	
 	private void processDatePattern() {
-		for (int i = 0; i < listConf.size(); i++) {
-			String field = listConf.get(i);
+		int i = 0;
+		for (String field : listConf) {
 			char caracter = field.charAt(1);
     		if( caracter == 'd' ){
     			String shortField = field.substring(0,2);
     			datePattern = field.substring(3, (field.length() - 1) );
             	listConf.set(i, shortField);
+            	break;
     		}
+    		i++;
 		}
 	}
 	
