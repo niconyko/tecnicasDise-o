@@ -14,7 +14,7 @@ public class FileTarget extends Target{
 	
 	@Override
 	void log(Context context, Configuration configuration) {
-		String message = this.generateMessage(context, configuration);
+		String message = context.generateMessage(configuration);
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(destination, true)))) {
 		    out.println(message);
 		}catch (Exception e) {

@@ -4,7 +4,7 @@ public class ConsoleTarget extends Target {
 
 	@Override
 	void log(Context context, Configuration configuration) {
-		String finalString = this.generateMessage(context, configuration);
+		String finalString = context.generateMessage(configuration);
 		System.out.println(finalString);
 	}
 

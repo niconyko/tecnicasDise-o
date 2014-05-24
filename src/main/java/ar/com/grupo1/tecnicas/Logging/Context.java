@@ -1,6 +1,7 @@
 package ar.com.grupo1.tecnicas.Logging;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 
@@ -44,13 +45,28 @@ public class Context {
 	}
 	
 	public String getData(String key) {
-		return (String) data.get(key);
+		return data.get(key);
 	}
 	
 	public String getDelimeter() {
 		return this.delimeter;
 	}
 
+	protected String generateMessage(Configuration configuration) {
+		ArrayList<String> dataList = configuration.getConfiguration();
+		String finalString = "";
+		
+		for (String key : dataList) {
+			finalString += this.getData(key);
+			finalString += this.getDelimeter();
+		}
+		
+		// Elimina el ultimo delimeter
+		finalString = finalString.substring(0, finalString.length() - 1);
+		
+		return finalString;
+	}
+	
 	@Override
 	public boolean equals(Object object){
 		if(!(object instanceof Context)) return false;
