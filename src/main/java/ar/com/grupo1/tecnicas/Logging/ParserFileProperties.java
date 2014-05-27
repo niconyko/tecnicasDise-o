@@ -14,7 +14,7 @@ public class ParserFileProperties {
 	private ArrayList<String> listConf;
 	private String datePattern = null;
 	private String delimeter = "-";
-	private String level = "0";
+	private String level = "DEBUG";
 	
 	public ParserFileProperties(String fileProperties){
 		filename = fileProperties;
