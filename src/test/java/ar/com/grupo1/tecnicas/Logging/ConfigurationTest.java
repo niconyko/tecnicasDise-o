@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 public class ConfigurationTest {
-	String fileName = "mytestfile";
+	String fileName = "prueba.properties2";
 
 	@Test
 	public void SetDelimiter() {
