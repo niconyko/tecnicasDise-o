@@ -4,7 +4,7 @@ package ar.com.grupo1.tecnicas.Logging;
 
 public class Level {
 
-	private enum enumLevel {DEBUG, INFO, WARN, ERROR, FATAL, OFF};
+	private enum enumLevel {TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF};
 	private enumLevel level;
 	
 	public Level(String filterLevel) {

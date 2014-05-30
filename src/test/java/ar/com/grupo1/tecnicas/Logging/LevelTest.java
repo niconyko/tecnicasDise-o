@@ -38,4 +38,37 @@ public class LevelTest{
 		assert(  level.isValid(particularLevel) );
 	}
 	
+	@Test
+	public void everyLevelIsValidForTraceLevel() {
+
+ 		String traceLevel = "TRACE";
+ 		String debugLevel = "DEBUG";
+		String infoLevel = "INFO";
+		String warnLevel = "WARN";
+		String errorLevel = "ERROR";
+		String fatalLevel = "FATAL";
+		String offLevel = "OFF";
+
+		Level level = new Level(traceLevel);
+
+		assertTrue( level.isValid(traceLevel) );
+		assertTrue( level.isValid(debugLevel) );
+		assertTrue( level.isValid(infoLevel) );
+		assertTrue( level.isValid(warnLevel) );
+		assertTrue( level.isValid(errorLevel) );
+		assertTrue( level.isValid(fatalLevel) );
+		assertTrue( level.isValid(offLevel) );
+		
+	}
+
+	@Test
+	public void traceLevelIsNotValidForDebugLevel() {
+
+ 		String traceLevel = "TRACE";
+ 		String debugLevel = "DEBUG";
+		Level level = new Level(debugLevel);
+
+		assertFalse( level.isValid(traceLevel) );
+		
+	}
 }
