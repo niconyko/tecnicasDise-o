@@ -16,7 +16,7 @@ public class Logging implements ILogging{
 	
 	public Logging (String fileProperties, String name) {
 		targets = new ArrayList<Target>();
-		config = new Configuration(fileProperties);
+		config = new Configuration();
 		levelLog = new Level(config.getFilterLevel() );
 		this.name = name;
 	}

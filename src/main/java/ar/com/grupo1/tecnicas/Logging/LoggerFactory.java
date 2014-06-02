@@ -7,7 +7,7 @@ public  class LoggerFactory {
 	private static int ERROR = -1;
 	private static ArrayList<Logging> manager = new ArrayList<>();
 	//BORRAR CUANDO SE HAGA FUNCIONALIDAD DE LEVANTAR CONFIGURACION
-	private static String filename = "./prueba.properties2";
+	private static String filename = "./logger-config.properties";
 	//HASTA ACA
 
 	public static void reset(){

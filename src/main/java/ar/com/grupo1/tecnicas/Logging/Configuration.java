@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Configuration {
 	
 	private ParserFile parser;
-	
+	private String fileProperties = "./logger-config.properties";
 	private ArrayList<String> listConfiguration;
 	
-	public Configuration(String fileProperties){
+	public Configuration(){
 		parser = new ParserFileProperties(fileProperties);
 		//parser = new ParserFileXml(fileProperties);
 		listConfiguration = parser.parser();

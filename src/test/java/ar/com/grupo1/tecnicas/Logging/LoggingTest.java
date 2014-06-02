@@ -10,7 +10,7 @@ public class LoggingTest {
 
 	String format = "this is my output format";
 	String logName = "name";
-	private String filename = "./prueba.properties2";
+	private String filename = "./logger-config.properties";
 	@Test
 	public void testGetLevel() {
 		Logging logging = new Logging(filename, logName);
