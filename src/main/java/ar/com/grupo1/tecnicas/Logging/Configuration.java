@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class Configuration {
 	
-	private ParserFileProperties parser;
+	private ParserFile parser;
+	
 	private ArrayList<String> listConfiguration;
 	
 	public Configuration(String fileProperties){
 		parser = new ParserFileProperties(fileProperties);
+		//parser = new ParserFileXml(fileProperties);
 		listConfiguration = parser.parser();
 	}
 	
