@@ -1,5 +1,5 @@
 <settings>
-    <format>%d{HH:mm:ss} %p %t %m %% %n %F %M %L</format>
+    <format>%d{HH:mm:ss} %p %t %m %% %n %F %M %L %g</format>
     <delimeter>+</delimeter>
     <level>WARN</level>
 </settings>

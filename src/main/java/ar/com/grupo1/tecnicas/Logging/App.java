@@ -4,11 +4,8 @@ package ar.com.grupo1.tecnicas.Logging;
 public class App 
 {
 	
-	
     public static void nombreDelMetodo(){
     	Logging log = new Logging("Name");
-    	//Logging log = new Logging("./prueba.xml");
-    	//Logging log = new Logging("./prueba.properties2");
 
     	Target consoleTarget = new ConsoleTarget();
     	log.addTarget(consoleTarget);
@@ -20,6 +17,7 @@ public class App
     	
     	
     }
+    
 	public static void main( String[] args )
     {
     	nombreDelMetodo();  	

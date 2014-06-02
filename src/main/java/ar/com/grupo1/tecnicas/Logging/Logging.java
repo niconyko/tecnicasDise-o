@@ -27,7 +27,7 @@ public class Logging implements ILogging{
 		return matcher.find();
 	}
 	public void log(String message, String level) {
-		context = new Context(level, message, config.getDatePattern(), config.getDelimeter());
+		context = new Context(name, level, message, config.getDatePattern(), config.getDelimeter());
 	
 		if(levelLog.isValid(level) && this.regexFilterAccepted(message)){
 			for (Target target : targets) {

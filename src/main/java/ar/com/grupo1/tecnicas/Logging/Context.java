@@ -8,11 +8,11 @@ import java.util.Hashtable;
 
 public class Context {
 
-	private String nameMethod, fileName, threadName, level, message, datePattern, delimeter, lineNumber;
+	private String name, nameMethod, fileName, threadName, level, message, datePattern, delimeter, lineNumber;
 	private Hashtable<String, String> data;
 	
 	
-	public Context(String level, String message, String datePattern, String delimeter) {
+	public Context(String name, String level, String message, String datePattern, String delimeter) {
 		this.nameMethod = Thread.currentThread().getStackTrace()[3].getMethodName();
 		this.lineNumber = String.valueOf(Thread.currentThread().getStackTrace()[3].getLineNumber());
 		this.fileName = Thread.currentThread().getStackTrace()[3].getFileName();
@@ -21,6 +21,7 @@ public class Context {
 		this.message = message;
 		this.datePattern = processDate(datePattern);
 		this.delimeter = delimeter;
+		this.name = name;
 		
 		data = new Hashtable<String, String>();
 		loadConfigHash();
@@ -42,6 +43,7 @@ public class Context {
 		data.put("%L", this.lineNumber);
 		data.put("%F", this.fileName);
 		data.put("%M", this.nameMethod);
+		data.put("%g", this.name);
 	}
 	
 	public String getData(String key) {

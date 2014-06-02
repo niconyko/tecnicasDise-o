@@ -9,13 +9,13 @@ import org.junit.Test;
 
 public class ContextTest {
 	
-	String level = "WARN", message="message", datePattern ="HH:mm:ss", delimeter="-";
+	String level = "WARN", message="message", datePattern ="HH:mm:ss", delimeter="-", name="ContName";
 	
 	
 	@Test
 	public void testGetDelimiter() {
 		 
-		Context context = new Context(level,message,datePattern,delimeter);
+		Context context = new Context(name, level, message, datePattern, delimeter);
 		String delimeterData = context.getData("%n");                  
 		assertEquals(delimeter, delimeterData);
 	}
@@ -23,7 +23,7 @@ public class ContextTest {
 	@Test
 	public void testGetLevel() {
 		 
-		Context context = new Context(level,message,datePattern,delimeter);
+		Context context = new Context(name, level,message,datePattern,delimeter);
 		String levelData = context.getData("%p");                  
 		assertEquals(level, levelData);
 	}
@@ -31,7 +31,7 @@ public class ContextTest {
 	@Test
 	public void testGetMessage() {
 		 
-		Context context = new Context(level,message,datePattern,delimeter);
+		Context context = new Context(name, level,message,datePattern,delimeter);
 		String msgData = context.getData("%m");                  
 		assertEquals(message, msgData);
 	}
@@ -39,7 +39,7 @@ public class ContextTest {
 	@Test
 	public void testGetDate() {
 		 
-		Context context = new Context(level,message,datePattern,delimeter);
+		Context context = new Context(name, level,message,datePattern,delimeter);
 		String dateData = context.getData("%d");                  
 		SimpleDateFormat date = new SimpleDateFormat(datePattern);
 		
@@ -49,7 +49,7 @@ public class ContextTest {
 	@Test
 	public void testGetNameThread() {
 		 
-		Context context = new Context(level,message,datePattern,delimeter);
+		Context context = new Context(name, level,message,datePattern,delimeter);
 		String threadData = context.getData("%t");                  
 				
 		assertEquals("main" , threadData);
