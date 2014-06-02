@@ -51,19 +51,26 @@ public class Context {
 	public String getDelimeter() {
 		return this.delimeter;
 	}
+	private String generateJson(){
+		String date =  processDate("yyyy-MM-ddzhh:mm:ss"); 
+		return "{\"datetime\": \""+date+"\",\"level\": \""+this.level+"\", \"logger\": \"LoggerName\" ,\"message\": \""+this.message +"\"}";
+
+	}
 
 	protected String generateMessage(Configuration configuration) {
 		ArrayList<String> dataList = configuration.getConfiguration();
 		String finalString = "";
-		
-		for (String key : dataList) {
-			finalString += this.getData(key);
-			finalString += this.getDelimeter();
+		if( dataList.get(0) == "json") finalString += generateJson();
+		else{
+			
+			for (String key : dataList) {
+				finalString += this.getData(key);
+				finalString += this.getDelimeter();
+			}
+			
+			// Elimina el ultimo delimeter
+			finalString = finalString.substring(0, finalString.length() - 1);
 		}
-		
-		// Elimina el ultimo delimeter
-		finalString = finalString.substring(0, finalString.length() - 1);
-		
 		return finalString;
 	}
 	

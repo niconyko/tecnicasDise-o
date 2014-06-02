@@ -34,9 +34,13 @@ abstract class ParserFile {
 		processDatePattern();
 	}
 	
-	protected void processFormat(String sFormat) {
-		String format = sFormat;
-		TranslateFormatIntoPattern(format);
+	protected void processFormat(String format) {		
+		if( format.equalsIgnoreCase("json") ){
+			listConf = new ArrayList<String>();
+			listConf.add("json");			
+		}
+		
+		else TranslateFormatIntoPattern(format);
 	}
 	
 	protected void processDelimeter(String delimiter) {
