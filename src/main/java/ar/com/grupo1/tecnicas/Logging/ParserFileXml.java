@@ -24,7 +24,6 @@ public class ParserFileXml extends ParserFile {
 		filename = fileProperties;
 	}
 
-	
 	public ArrayList<String> parser() {
 	
 		File fXmlFile = new File(filename);

@@ -10,17 +10,17 @@ public class LoggingTest {
 
 	String format = "this is my output format";
 	String logName = "name";
-	private String filename = "./logger-config.properties";
+	
 	@Test
 	public void testGetLevel() {
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		logging.setLevel(Level.INFO.toString());
 		assertEquals( Level.INFO.toString(), logging.getLevel());
 	}
 	
 	@Test
 	public void testGetFormat() {
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		logging.setFormat(format);
 		assertEquals( format, logging.getFormat());
 	}
@@ -28,7 +28,7 @@ public class LoggingTest {
 	@Test
 	public void testCreateEmpty() {
 		String emptyValue = "";
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		assertEquals( emptyValue , logging.getFormat() );
 		assertEquals( emptyValue, logging.getLevel());
 		assertEquals( 0, logging.TargetsCount() );
@@ -36,7 +36,7 @@ public class LoggingTest {
 
 	@Test
 	public void testAddConsoleTarget() {
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		logging.addTarget(consoleTarget);
 		assertEquals(1, logging.TargetsCount());
@@ -47,7 +47,7 @@ public class LoggingTest {
 	public void testAddFileTarget() {
 		String target = "target";
 		String anotherTarget = "target2";
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 
 		FileTarget fileTarget = new FileTarget(target);
 		logging.addTarget(fileTarget);
@@ -62,7 +62,7 @@ public class LoggingTest {
 	public void testAddDifferentTargets() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 
 		FileTarget fileTarget = new FileTarget(target);
 		logging.addTarget(fileTarget);
@@ -77,7 +77,7 @@ public class LoggingTest {
 	public void testAddTwiceTheSameTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		FileTarget fileTarget = new FileTarget(target);
 		
 		logging.addTarget(fileTarget);
@@ -89,7 +89,7 @@ public class LoggingTest {
 	@Test
 	public void testCantAddTwoConsoleTargets() {
 	
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		
 		logging.addTarget(consoleTarget);
@@ -102,7 +102,7 @@ public class LoggingTest {
 	public void testDeleteFileTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		
 		FileTarget fileTarget = new FileTarget(target);		
 		logging.addTarget(fileTarget);
@@ -114,7 +114,7 @@ public class LoggingTest {
 	@Test
 	public void testDeleteConsoleTarget() {
 		
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		ConsoleTarget consoleTarget = new ConsoleTarget();		
 		logging.addTarget(consoleTarget);
 		logging.removeTarget(consoleTarget);
@@ -126,7 +126,7 @@ public class LoggingTest {
 	public void testDeleteUnexistingTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		FileTarget fileTarget = new FileTarget(target);
 		
 		logging.addTarget(fileTarget);
@@ -138,14 +138,14 @@ public class LoggingTest {
 	@Test
 	public void SetDelimiter() {
 		String delimeter = ";";
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		logging.setDelimeter(delimeter);
 		assertEquals(logging.getDelimeter(),delimeter);
 	}
 
 	@Test
 	public void regexMatchWithRegexFilterNotInitialized() {
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		assertTrue(logging.regexFilterAccepted("aasdfasdfasdfafda"));
 		assertTrue(logging.regexFilterAccepted(""));
 		assertTrue(logging.regexFilterAccepted("12341243"));
@@ -154,7 +154,7 @@ public class LoggingTest {
 	
 	@Test
 	public void regexStringWithABegginingFilter() {
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		logging.setRegexFilter("^a");
 		assertTrue(logging.regexFilterAccepted("aasdfasdfasdfafda"));
 		assertFalse(logging.regexFilterAccepted(""));
@@ -164,7 +164,7 @@ public class LoggingTest {
 	
 	@Test
 	public void regexStringWithOneCharacterFilter() {
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		logging.setRegexFilter("^.$");
 		assertFalse(logging.regexFilterAccepted("aasdfasdfasdfafda"));
 		assertFalse(logging.regexFilterAccepted(""));
@@ -175,7 +175,7 @@ public class LoggingTest {
 	
 	@Test
 	public void regexStringWithNumbersFilter() {
-		Logging logging = new Logging(filename, logName);
+		Logging logging = new Logging(logName);
 		logging.setRegexFilter("^[0-9]*$");
 		assertFalse(logging.regexFilterAccepted("aasdfasdfasdfafda"));
 		assertTrue(logging.regexFilterAccepted(""));

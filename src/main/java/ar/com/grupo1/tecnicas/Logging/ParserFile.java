@@ -9,7 +9,8 @@ abstract class ParserFile {
 	protected ArrayList<String> listConf;
 	protected String datePattern = null;
 	protected String delimeter = "-";
-	protected String level = "DEBUG";
+	protected String level = "TRACE";
+	abstract ArrayList<String> parser();
 	
 	protected void processDatePattern() {
 		int i = 0;
@@ -55,16 +56,10 @@ abstract class ParserFile {
 		this.level = readLevel;
 	}
 	
-	
-	
 	public ArrayList<String> setFormat(String format){
 		TranslateFormatIntoPattern(format);
 		return listConf;
 	}
-	
-	
-	
-	abstract ArrayList<String> parser();
 	
 	public String getDatePattern(){
 		return this.datePattern;

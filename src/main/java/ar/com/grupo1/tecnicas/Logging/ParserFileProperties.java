@@ -10,12 +10,9 @@ import java.util.Properties;
 
 public class ParserFileProperties extends ParserFile {
 
-	
-	
 	public ParserFileProperties(String fileProperties){
 		filename = fileProperties;
 	}
-	
 	
 	public ArrayList<String> parser() {
 	
@@ -40,7 +37,5 @@ public class ParserFileProperties extends ParserFile {
 			}
 		}
 		return listConf;
-	}
-	
-	
+	}	
 }

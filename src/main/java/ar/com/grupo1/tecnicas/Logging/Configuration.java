@@ -1,17 +1,26 @@
 package ar.com.grupo1.tecnicas.Logging;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Configuration {
 	
 	private ParserFile parser;
-	private String fileProperties = "./logger-config.properties";
+	private final String fileProperties = "./logger-config.properties";
+	private final String fileXML = "./logger-config.xml";
 	private ArrayList<String> listConfiguration;
 	
 	public Configuration(){
-		parser = new ParserFileProperties(fileProperties);
-		//parser = new ParserFileXml(fileProperties);
+		parser = loadConfiguration();
 		listConfiguration = parser.parser();
+	}
+	
+	private ParserFile loadConfiguration() {
+		File f = new File(fileProperties);
+		if(f.isFile()) return new ParserFileProperties(fileProperties);
+		f = new File(fileXML);
+		if(f.isFile()) return new ParserFileXml(fileXML);
+		return new ParserDefault();
 	}
 	
 	public ArrayList<String> getConfiguration(){		

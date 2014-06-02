@@ -6,9 +6,6 @@ import java.util.Iterator;
 public  class LoggerFactory {
 	private static int ERROR = -1;
 	private static ArrayList<Logging> manager = new ArrayList<>();
-	//BORRAR CUANDO SE HAGA FUNCIONALIDAD DE LEVANTAR CONFIGURACION
-	private static String filename = "./logger-config.properties";
-	//HASTA ACA
 
 	public static void reset(){
 		manager.clear();
@@ -19,7 +16,7 @@ public  class LoggerFactory {
 	
 	public static boolean addLog(String nameLog){
 		if (containsLog(nameLog)) return false;
-		manager.add(new Logging(filename, nameLog));
+		manager.add(new Logging(nameLog));
 		return true;
 	}
 	
