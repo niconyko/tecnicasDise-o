@@ -3,8 +3,6 @@ package ar.com.grupo1.tecnicas.Logging;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import org.hamcrest.Matcher;
-
 
 public class Logging implements ILogging{
 	private String name = "";
