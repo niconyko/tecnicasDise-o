@@ -1,12 +1,16 @@
 package ar.com.grupo1.tecnicas.Logging;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
+
+import org.hamcrest.Matcher;
 
 
 public class Logging implements ILogging{
 	private String name = "";
 	private String level = "";
 	private String format = "";
+	private String regexFilter = ".*";
 	private ArrayList<Target> targets;
 	private Level levelLog;
 	private Context context;
@@ -19,16 +23,24 @@ public class Logging implements ILogging{
 		this.name = name;
 	}
 	
+	public boolean regexFilterAccepted(String message){
+	    Pattern pattern = Pattern.compile(regexFilter);
+	    java.util.regex.Matcher matcher = pattern.matcher(message);
+		return matcher.find();
+	}
 	public void log(String message, String level) {
 		context = new Context(level, message, config.getDatePattern(), config.getDelimeter());
 	
-		if(levelLog.isValid(level) ){
+		if(levelLog.isValid(level) && this.regexFilterAccepted(message)){
 			for (Target target : targets) {
 				target.log(context, config);
 			}
 		}
 	}
 	
+	public void setRegexFilter(String regexFilter){
+		this.regexFilter = regexFilter;
+	}
 	public void setLevel(String level) {
 		this.level = level;
 		levelLog.setLevel(level);

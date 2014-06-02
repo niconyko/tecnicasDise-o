@@ -143,5 +143,44 @@ public class LoggingTest {
 		assertEquals(logging.getDelimeter(),delimeter);
 	}
 
-
+	@Test
+	public void regexMatchWithRegexFilterNotInitialized() {
+		Logging logging = new Logging(filename, logName);
+		assertTrue(logging.regexFilterAccepted("aasdfasdfasdfafda"));
+		assertTrue(logging.regexFilterAccepted(""));
+		assertTrue(logging.regexFilterAccepted("12341243"));
+		assertTrue(logging.regexFilterAccepted("  "));
+	}
+	
+	@Test
+	public void regexStringWithABegginingFilter() {
+		Logging logging = new Logging(filename, logName);
+		logging.setRegexFilter("^a");
+		assertTrue(logging.regexFilterAccepted("aasdfasdfasdfafda"));
+		assertFalse(logging.regexFilterAccepted(""));
+		assertFalse(logging.regexFilterAccepted("12341243"));
+		assertFalse(logging.regexFilterAccepted("  "));
+	}
+	
+	@Test
+	public void regexStringWithOneCharacterFilter() {
+		Logging logging = new Logging(filename, logName);
+		logging.setRegexFilter("^.$");
+		assertFalse(logging.regexFilterAccepted("aasdfasdfasdfafda"));
+		assertFalse(logging.regexFilterAccepted(""));
+		assertFalse(logging.regexFilterAccepted("12341243"));
+		assertFalse(logging.regexFilterAccepted("  "));
+		assertTrue(logging.regexFilterAccepted("k"));
+	}
+	
+	@Test
+	public void regexStringWithNumbersFilter() {
+		Logging logging = new Logging(filename, logName);
+		logging.setRegexFilter("^[0-9]*$");
+		assertFalse(logging.regexFilterAccepted("aasdfasdfasdfafda"));
+		assertTrue(logging.regexFilterAccepted(""));
+		assertTrue(logging.regexFilterAccepted("12341243"));
+		assertFalse(logging.regexFilterAccepted("  "));
+		assertFalse(logging.regexFilterAccepted("k"));
+	}
 }
