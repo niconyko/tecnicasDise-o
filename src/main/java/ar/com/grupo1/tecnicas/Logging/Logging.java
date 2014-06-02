@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 public class Logging implements ILogging{
+	private String name = "";
 	private String level = "";
 	private String format = "";
 	private ArrayList<Target> targets;
@@ -11,10 +12,11 @@ public class Logging implements ILogging{
 	private Context context;
 	private Configuration config;
 	
-	public Logging (String fileProperties) {
+	public Logging (String fileProperties, String name) {
 		targets = new ArrayList<Target>();
 		config = new Configuration(fileProperties);
 		levelLog = new Level(config.getFilterLevel() );
+		this.name = name;
 	}
 	
 	public void log(String message, String level) {
@@ -40,6 +42,10 @@ public class Logging implements ILogging{
 		return config.getDelimeter();
 	}
 
+	public String getName(){
+		return this.name;
+	}
+	
 	public void setDelimeter(String delimeter) {
 		config.setDelimeter(delimeter);
 	}
@@ -69,6 +75,8 @@ public class Logging implements ILogging{
 	@Override
 	public boolean equals(Object object){
 		if(!(object instanceof Logging)) return false;
+		Logging otherLoggin = (Logging) object;
+		if(this.name.equals(otherLoggin.getName())) return true;
 		return this == object;	
 	}
 	 

@@ -1,15 +1,12 @@
 package ar.com.grupo1.tecnicas.Logging;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
 	
 	
     public static void nombreDelMetodo(){
-    	Logging log = new Logging("./prueba.properties2");
+    	Logging log = new Logging("./prueba.properties2", "Name");
     	Target consoleTarget = new ConsoleTarget();
     	log.addTarget(consoleTarget);
     	Target fileTarget = new FileTarget("myTarget.log");

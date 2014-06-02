@@ -9,17 +9,18 @@ import org.junit.Test;
 public class LoggingTest {
 
 	String format = "this is my output format";
+	String logName = "name";
 	private String filename = "./prueba.properties2";
 	@Test
 	public void testGetLevel() {
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		logging.setLevel(Level.INFO.toString());
 		assertEquals( Level.INFO.toString(), logging.getLevel());
 	}
 	
 	@Test
 	public void testGetFormat() {
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		logging.setFormat(format);
 		assertEquals( format, logging.getFormat());
 	}
@@ -27,7 +28,7 @@ public class LoggingTest {
 	@Test
 	public void testCreateEmpty() {
 		String emptyValue = "";
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		assertEquals( emptyValue , logging.getFormat() );
 		assertEquals( emptyValue, logging.getLevel());
 		assertEquals( 0, logging.TargetsCount() );
@@ -35,7 +36,7 @@ public class LoggingTest {
 
 	@Test
 	public void testAddConsoleTarget() {
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		logging.addTarget(consoleTarget);
 		assertEquals(1, logging.TargetsCount());
@@ -46,7 +47,7 @@ public class LoggingTest {
 	public void testAddFileTarget() {
 		String target = "target";
 		String anotherTarget = "target2";
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 
 		FileTarget fileTarget = new FileTarget(target);
 		logging.addTarget(fileTarget);
@@ -61,7 +62,7 @@ public class LoggingTest {
 	public void testAddDifferentTargets() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 
 		FileTarget fileTarget = new FileTarget(target);
 		logging.addTarget(fileTarget);
@@ -76,7 +77,7 @@ public class LoggingTest {
 	public void testAddTwiceTheSameTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		FileTarget fileTarget = new FileTarget(target);
 		
 		logging.addTarget(fileTarget);
@@ -88,7 +89,7 @@ public class LoggingTest {
 	@Test
 	public void testCantAddTwoConsoleTargets() {
 	
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		ConsoleTarget consoleTarget = new ConsoleTarget();
 		
 		logging.addTarget(consoleTarget);
@@ -101,7 +102,7 @@ public class LoggingTest {
 	public void testDeleteFileTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		
 		FileTarget fileTarget = new FileTarget(target);		
 		logging.addTarget(fileTarget);
@@ -113,7 +114,7 @@ public class LoggingTest {
 	@Test
 	public void testDeleteConsoleTarget() {
 		
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		ConsoleTarget consoleTarget = new ConsoleTarget();		
 		logging.addTarget(consoleTarget);
 		logging.removeTarget(consoleTarget);
@@ -125,7 +126,7 @@ public class LoggingTest {
 	public void testDeleteUnexistingTarget() {
 		String target = "target";
 		
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		FileTarget fileTarget = new FileTarget(target);
 		
 		logging.addTarget(fileTarget);
@@ -137,7 +138,7 @@ public class LoggingTest {
 	@Test
 	public void SetDelimiter() {
 		String delimeter = ";";
-		Logging logging = new Logging(filename);
+		Logging logging = new Logging(filename, logName);
 		logging.setDelimeter(delimeter);
 		assertEquals(logging.getDelimeter(),delimeter);
 	}
