@@ -12,6 +12,7 @@ public class ParserFileProperties extends ParserFile {
 
 	public ParserFileProperties(String fileProperties, String logName){
 		filename = fileProperties;
+		sourceName = logName;
 	}
 	
 	public ArrayList<String> parser() {
@@ -22,9 +23,9 @@ public class ParserFileProperties extends ParserFile {
 		try {
 			input = new FileInputStream(filename);
 			prop.load(input);
-			processFormat(prop.getProperty("format"));
-			processDelimeter( prop.getProperty("delimeter"));
-			processLevel(prop.getProperty("level"));
+			processFormat(prop.getProperty(sourceName + ".format"));
+			processDelimeter( prop.getProperty(sourceName + ".delimeter"));
+			processLevel(prop.getProperty(sourceName + ".level"));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {

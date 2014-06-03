@@ -9,7 +9,7 @@ public class ConfigurationTest {
 	@Test
 	public void SetDelimiter() {
 		String delimeter = ";";
-		String logName = "name";
+		String logName = "Juan";
 		Configuration conf = new Configuration(logName);
 		conf.setDelimeter(delimeter);
 		assertEquals(conf.getDelimeter(),delimeter);
@@ -18,7 +18,7 @@ public class ConfigurationTest {
 	@Test
 	public void SetFilterLevel() {
 		String level = "2";
-		String logName = "name";
+		String logName = "Juan";
 		Configuration conf = new Configuration(logName);
 		conf.setFilterLevel(level);
 		assertEquals(conf.getFilterLevel(),level);

@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class LoggerFactoryTest {
-	String name = "name";
-	String name2 = "name2";
+	String name = "Name";
+	String name2 = "Juan";
 
 	@Test
 	public void emptyWhenStart(){

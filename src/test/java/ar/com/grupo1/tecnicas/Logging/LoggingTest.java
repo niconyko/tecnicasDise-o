@@ -9,7 +9,7 @@ import org.junit.Test;
 public class LoggingTest {
 
 	String format = "this is my output format";
-	String logName = "name";
+	String logName = "Name";
 	
 	@Test
 	public void testGetLevel() {

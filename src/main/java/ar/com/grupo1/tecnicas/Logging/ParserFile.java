@@ -6,6 +6,7 @@ import java.util.Arrays;
 abstract class ParserFile {
 	
 	protected String filename;
+	protected String sourceName = null;
 	protected ArrayList<String> listConf;
 	protected String datePattern = null;
 	protected String delimeter = "-";
@@ -36,7 +37,7 @@ abstract class ParserFile {
 	}
 	
 	protected void processFormat(String format) {		
-		if( format.equalsIgnoreCase("json") ){
+		if(format!= null && format.equalsIgnoreCase("json") ){
 			listConf = new ArrayList<String>();
 			listConf.add("json");			
 		}
