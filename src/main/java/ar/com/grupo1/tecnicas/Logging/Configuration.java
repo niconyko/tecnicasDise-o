@@ -10,16 +10,16 @@ public class Configuration {
 	private final String fileXML = "./logger-config.xml";
 	private ArrayList<String> listConfiguration;
 	
-	public Configuration(){
-		parser = loadConfiguration();
+	public Configuration(String sourceName){
+		parser = loadConfiguration(sourceName);
 		listConfiguration = parser.parser();
 	}
 	
-	private ParserFile loadConfiguration() {
+	private ParserFile loadConfiguration(String sourceName) {
 		File f = new File(fileProperties);
-		if(f.isFile()) return new ParserFileProperties(fileProperties);
+		if(f.isFile()) return new ParserFileProperties(fileProperties, sourceName);
 		f = new File(fileXML);
-		if(f.isFile()) return new ParserFileXml(fileXML);
+		if(f.isFile()) return new ParserFileXml(fileXML, sourceName);
 		return new ParserDefault();
 	}
 	

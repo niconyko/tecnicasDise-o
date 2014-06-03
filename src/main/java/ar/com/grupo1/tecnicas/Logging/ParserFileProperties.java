@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class ParserFileProperties extends ParserFile {
 
-	public ParserFileProperties(String fileProperties){
+	public ParserFileProperties(String fileProperties, String logName){
 		filename = fileProperties;
 	}
 	

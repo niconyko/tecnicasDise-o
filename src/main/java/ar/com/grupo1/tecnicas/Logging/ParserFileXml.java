@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
 public class ParserFileXml extends ParserFile {
 	
 	
-	public ParserFileXml (String fileProperties){
+	public ParserFileXml (String fileProperties, String logName){
 		filename = fileProperties;
 	}
 

@@ -8,10 +8,10 @@ import org.junit.Test;
 
 public class ParserFilePropertiesTest {
 		String fileName = "";
-	
+		String logName = "name";
 		@Test
 		public void SetFormat() {
-			ParserFileProperties parser = new ParserFileProperties(fileName);
+			ParserFileProperties parser = new ParserFileProperties(fileName, logName);
 			ArrayList<String> conf = parser.setFormat("%p %t %% %n %F %M %d{ss:mm:HH} %L %m");
 			assertEquals(conf.size(), 9);
 			assertEquals(conf.get(0), "%p");
@@ -22,7 +22,7 @@ public class ParserFilePropertiesTest {
 		@Test
 		public void SetDelimiter() {
 			String delimeter = ";";
-			ParserFileProperties parser = new ParserFileProperties(fileName);
+			ParserFileProperties parser = new ParserFileProperties(fileName, logName);
 			parser.setDelimeter(delimeter);
 			assertEquals(parser.getDelimeter(),delimeter);
 		}
@@ -30,7 +30,7 @@ public class ParserFilePropertiesTest {
 		@Test
 		public void SetFilterLevel() {
 			String level = "2";
-			ParserFileProperties parser = new ParserFileProperties(fileName);
+			ParserFileProperties parser = new ParserFileProperties(fileName, logName);
 			parser.setFilterLevel(level);
 			assertEquals(parser.getFilterLevel(),level);
 		}

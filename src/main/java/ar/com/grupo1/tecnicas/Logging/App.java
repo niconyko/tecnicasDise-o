@@ -13,9 +13,6 @@ public class App
     	log.addTarget(fileTarget);
     	//log.setFormat("%p %t %% %n %F %M %d{ss:mm:HH} %L %m");
     	log.log("Hola", "WARN");
-    	
-    	
-    	
     }
     
 	public static void main( String[] args )
