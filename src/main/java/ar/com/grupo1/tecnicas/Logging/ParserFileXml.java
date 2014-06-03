@@ -18,10 +18,11 @@ import org.xml.sax.SAXException;
  
 
 public class ParserFileXml extends ParserFile {
-	
+	private String logName;
 	
 	public ParserFileXml (String fileProperties, String logName){
 		filename = fileProperties;
+		sourceName = logName;
 	}
 
 	public ArrayList<String> parser() {
@@ -50,9 +51,12 @@ public class ParserFileXml extends ParserFile {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 		 
 					Element eElement = (Element) nNode;	
-					processFormat(eElement.getElementsByTagName("format").item(0).getTextContent() );
-					processDelimeter(eElement.getElementsByTagName("delimeter").item(0).getTextContent());
-					processLevel(eElement.getElementsByTagName("level").item(0).getTextContent());		 
+					String tag = eElement.getElementsByTagName("tag").item(0).getTextContent();
+					if( tag.equals(sourceName) ){
+						processFormat(eElement.getElementsByTagName("format").item(0).getTextContent() );
+						processDelimeter(eElement.getElementsByTagName("delimeter").item(0).getTextContent());
+						processLevel(eElement.getElementsByTagName("level").item(0).getTextContent());		
+					}
 				}
 			}		
 					

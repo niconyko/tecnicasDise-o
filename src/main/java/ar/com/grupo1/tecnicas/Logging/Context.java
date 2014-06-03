@@ -53,9 +53,10 @@ public class Context {
 	public String getDelimeter() {
 		return this.delimeter;
 	}
+	
 	private String generateJson(){
 		String date =  processDate("yyyy-MM-ddzhh:mm:ss"); 
-		return "{\"datetime\": \""+date+"\",\"level\": \""+this.level+"\", \"logger\": \"LoggerName\" ,\"message\": \""+this.message +"\"}";
+		return "{\"datetime\": \""+date+"\",\"level\": \""+this.level+"\", \"logger\": \""+this.name+"\" ,\"message\": \""+this.message +"\"}";
 
 	}
 

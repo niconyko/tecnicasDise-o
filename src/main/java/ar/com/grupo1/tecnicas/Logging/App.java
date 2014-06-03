@@ -6,7 +6,6 @@ public class App
 	
     public static void nombreDelMetodo(){
     	Logging log = new Logging("Name");
-
     	Target consoleTarget = new ConsoleTarget();
     	log.addTarget(consoleTarget);
     	Target fileTarget = new FileTarget("myTarget.log");

@@ -1,5 +1,14 @@
-<settings>
-    <format>%d{HH:mm:ss} %p %t %m %% %n %F %M %L %g</format>
-    <delimeter>+</delimeter>
-    <level>WARN</level>
-</settings>
+<set>
+	<settings>
+		<tag>OtroName</tag>
+		<format>Json</format>
+		<delimeter>//</delimeter>
+		<level>WARN</level>
+	</settings>   
+	<settings> 
+		<tag>Name</tag>
+		<format>%d{HH:mm:ss} %p %t %m %% %n %F %M %L %g</format>
+		<delimeter>**</delimeter>
+		<level>WARN</level>
+	</settings>
+</set>
