@@ -16,32 +16,32 @@ public class LoggerFactoryTest {
 	@Test
 	public void addLogger(){
 		LoggerFactory.reset();
-		assertTrue(LoggerFactory.addLog(name));
+		assertNotEquals(LoggerFactory.getLogger(name), null);
 		assertEquals(LoggerFactory.getLoggingCount(), 1);
 	}
 
 	@Test
 	public void addTheSameLoggerTwice(){
 		LoggerFactory.reset();
-		assertTrue(LoggerFactory.addLog(name));
+		assertNotEquals(LoggerFactory.getLogger(name), null);
 		assertEquals(LoggerFactory.getLoggingCount(), 1);
-		assertFalse(LoggerFactory.addLog(name));
+		assertNotEquals(LoggerFactory.getLogger(name), null);
 		assertEquals(LoggerFactory.getLoggingCount(), 1);
 	}
 
 	@Test
 	public void addMoreThanOneLog(){
 		LoggerFactory.reset();
-		assertTrue(LoggerFactory.addLog(name));
+		assertNotEquals(LoggerFactory.getLogger(name), null);
 		assertEquals(LoggerFactory.getLoggingCount(), 1);
-		assertTrue(LoggerFactory.addLog(name2));
+		assertNotEquals(LoggerFactory.getLogger(name2), null);
 		assertEquals(LoggerFactory.getLoggingCount(), 2);
 	}
 
 	@Test
 	public void removeLog(){
 		LoggerFactory.reset();
-		assertTrue(LoggerFactory.addLog(name));
+		assertNotEquals(LoggerFactory.getLogger(name), null);
 		assertEquals(LoggerFactory.getLoggingCount(), 1);
 		assertTrue(LoggerFactory.removeLog(name));
 		assertEquals(LoggerFactory.getLoggingCount(), 0);
@@ -54,15 +54,16 @@ public class LoggerFactoryTest {
 	}
 	
 	@Test
-	public void getLoggerWhenNotExist(){
+	public void getLoggerWhenNotExistAndCreateANewOne(){
 		LoggerFactory.reset();
-		assertEquals(LoggerFactory.getLogger(name),null);
+		assertEquals(LoggerFactory.getLoggingCount(), 0);
+		assertNotEquals(LoggerFactory.getLogger(name),null);
 	}
 	
 	@Test
 	public void getLogger(){
 		LoggerFactory.reset();
-		assertTrue(LoggerFactory.addLog(name));
+		assertNotEquals(LoggerFactory.getLogger(name), null);
 		Logging logger = LoggerFactory.getLogger(name);
 		assertNotEquals(logger,null);
 		assertEquals(logger.getName(), name);
@@ -72,11 +73,12 @@ public class LoggerFactoryTest {
 	@Test
 	public void removeLogWhenThereAreMoreThanOneLog(){
 		LoggerFactory.reset();
-		assertTrue(LoggerFactory.addLog(name));
-		assertTrue(LoggerFactory.addLog(name2));
+		Logging logging1 = LoggerFactory.getLogger(name);
+		Logging logging2 = LoggerFactory.getLogger(name2);
 		assertTrue(LoggerFactory.removeLog(name));
-		assertEquals(LoggerFactory.getLogger(name), null);
-		assertNotEquals(LoggerFactory.getLogger(name2),null);
+	
+		assertFalse(LoggerFactory.getLogger(name) == logging1);
+		assertTrue(LoggerFactory.getLogger(name2) == logging2);
 	}
 	
 	

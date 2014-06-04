@@ -14,10 +14,10 @@ public  class LoggerFactory {
 		return manager.size();
 	}
 	
-	public static boolean addLog(String nameLog){
-		if (containsLog(nameLog)) return false;
-		manager.add(new Logging(nameLog));
-		return true;
+	private static Logging addLog(String nameLog){
+		Logging logging = new Logging(nameLog); 
+		manager.add(logging);
+		return logging;
 	}
 	
 	private static int getLoggingIndex(String name){
@@ -31,13 +31,18 @@ public  class LoggerFactory {
 		return ERROR;
 	}
 	
-	public static Logging getLogger(String name){
+	private static Logging getOneLogger(String name){
 		Iterator<Logging> iter = manager.iterator();
 		while(iter.hasNext()){
 			Logging logging = iter.next();
 			if (logging.getName().equals(name))	return logging;
 		}
 		return null;
+	}
+	
+	public static Logging getLogger(String Name){
+		if (containsLog(Name)) return getOneLogger(Name);
+		return addLog(Name);
 	}
 	
 	private static boolean containsLog(String name){
