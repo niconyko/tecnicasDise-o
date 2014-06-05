@@ -9,6 +9,7 @@ public class Logging implements ILogging{
 	private String level = "";
 	private String format = "";
 	private String regexFilter = ".*";
+	private String customClassFilterName = "";
 	private ArrayList<Target> targets;
 	private Level levelLog;
 	private Context context;
@@ -26,19 +27,39 @@ public class Logging implements ILogging{
 	    java.util.regex.Matcher matcher = pattern.matcher(message);
 		return matcher.find();
 	}
-	public void log(String message, String level) {
+	
+	private boolean customFilterLoggingMessage(String message){
+		if (customClassFilterName.equals("")) return true;
+	
+		try {
+			Class<?> filtro = Class.forName(customClassFilterName);
+			
+			filterCustom filter = (filterCustom) filtro.newInstance();
+			return filter.filter(message, context);
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	public boolean log(String message, String level) {
 		context = new Context(name, level, message, config.getDatePattern(), config.getDelimeter());
 	
-		if(levelLog.isValid(level) && this.regexFilterAccepted(message)){
+		if(levelLog.isValid(level) && this.regexFilterAccepted(message) && this.customFilterLoggingMessage(message)){
 			for (Target target : targets) {
 				target.log(context, config);
 			}
-		}
+			return true;
+		 }
+		return false;
 	}
 	
 	public void setRegexFilter(String regexFilter){
 		this.regexFilter = regexFilter;
 	}
+	
+	public void setCustomFilterClass(String className){
+		this.customClassFilterName = className;
+	}
+	
 	public void setLevel(String level) {
 		this.level = level;
 		levelLog.setLevel(level);

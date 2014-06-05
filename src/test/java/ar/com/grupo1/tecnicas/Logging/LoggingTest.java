@@ -183,4 +183,11 @@ public class LoggingTest {
 		assertFalse(logging.regexFilterAccepted("  "));
 		assertFalse(logging.regexFilterAccepted("k"));
 	}
+	
+	@Test
+	public void filterCustom() {
+		Logging logging = new Logging(logName);
+		logging.setCustomFilterClass("ar.com.grupo1.tecnicas.Logging.EmptyFilter");
+		assertTrue(logging.log("hola", "DEBUG"));
+	}
 }
