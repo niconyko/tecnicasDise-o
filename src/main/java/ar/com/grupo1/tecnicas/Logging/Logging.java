@@ -111,10 +111,11 @@ public class Logging implements ILogging{
 	
 	public void addTarget(String Name){
 		try {
-			Class<?> targetClass = Class.forName(name);
+			Class<?> targetClass = Class.forName(Name);
 			Target target = (Target) targetClass.newInstance();
 			targets.add(target);
 		} catch (Exception e) {
+			e.printStackTrace();
 		}	
 	}
 	

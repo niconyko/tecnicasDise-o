@@ -185,14 +185,14 @@ public class LoggingTest {
 	}
 	
 	@Test
-	public void filterCustom() {
+	public void customFilter() {
 		Logging logging = new Logging(logName);
 		logging.setCustomFilterClass("ar.com.grupo1.tecnicas.Logging.EmptyFilter");
 		assertTrue(logging.log("message", "DEBUG"));
 	}
 	
 	@Test
-	public void filterTarget() {
+	public void customTarget() {
 		Logging logging = new Logging(logName);
 		logging.addTarget("ar.com.grupo1.tecnicas.Logging.CustomTarget");
 		assertTrue(logging.log("message", "DEBUG"));
