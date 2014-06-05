@@ -53,6 +53,11 @@ public class Logging implements ILogging{
 		return false;
 	}
 	
+	public boolean log(String message, Throwable e, String level) {
+		message += e.getMessage(); 
+		return log(message, level);
+	}
+	
 	public void setRegexFilter(String regexFilter){
 		this.regexFilter = regexFilter;
 	}

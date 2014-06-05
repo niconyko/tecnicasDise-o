@@ -13,6 +13,11 @@ public class LoggerAdapter implements org.slf4j.Logger{
 	}
 	
 	@Override
+	public String getName() {
+		return this.name;
+	}
+	
+	@Override
 	public void trace(String message) {
 		log.log(message, "TRACE");
 	}
@@ -36,7 +41,32 @@ public class LoggerAdapter implements org.slf4j.Logger{
 	public void error(String message) {
 		log.log(message, "ERROR");
 	}
+	
+	@Override
+	public void trace(String message, Throwable e) {
+		log.log(message, e, "ERROR");
+	}
 
+	@Override
+	public void debug(String message, Throwable e) {
+		log.log(message, e, "DEBUG");
+	}
+	
+	@Override
+	public void info(String message, Throwable e) {
+		log.log(message, e, "INFO");
+	}
+	
+	@Override
+	public void warn(String message, Throwable e) {
+		log.log(message, e, "WARN");
+	}
+	
+	@Override
+	public void error(String message, Throwable e) {
+		log.log(message, e, "ERROR");
+	}
+	
 	@Override
 	public void debug(String arg0, Object arg1) {
 		// TODO Auto-generated method stub
@@ -45,12 +75,6 @@ public class LoggerAdapter implements org.slf4j.Logger{
 
 	@Override
 	public void debug(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void debug(String arg0, Throwable arg1) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -104,12 +128,6 @@ public class LoggerAdapter implements org.slf4j.Logger{
 	}
 
 	@Override
-	public void error(String arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void error(Marker arg0, String arg1) {
 		// TODO Auto-generated method stub
 		
@@ -145,10 +163,7 @@ public class LoggerAdapter implements org.slf4j.Logger{
 		
 	}
 
-	@Override
-	public String getName() {
-		return this.name;
-	}
+	
 
 	@Override
 	public void info(String arg0, Object arg1) {
@@ -158,12 +173,6 @@ public class LoggerAdapter implements org.slf4j.Logger{
 
 	@Override
 	public void info(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(String arg0, Throwable arg1) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -277,12 +286,6 @@ public class LoggerAdapter implements org.slf4j.Logger{
 	}
 
 	@Override
-	public void trace(String arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void trace(Marker arg0, String arg1) {
 		// TODO Auto-generated method stub
 		
@@ -326,12 +329,6 @@ public class LoggerAdapter implements org.slf4j.Logger{
 
 	@Override
 	public void warn(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void warn(String arg0, Throwable arg1) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -17,11 +17,17 @@ public class App
     	
     	LoggerFactoryAdapter logFactory = new LoggerFactoryAdapter();
 		Logger slf4jLog = logFactory.getLogger("Juan");
-		slf4jLog.trace("S Info");
-		slf4jLog.debug("S Info");
-		slf4jLog.info("S Info");
-		slf4jLog.warn("S Info");
-		slf4jLog.error("S Info");
+		slf4jLog.trace("msg trace");
+		slf4jLog.debug("msg debug");
+		slf4jLog.info("msg info");
+		slf4jLog.warn("msg warm");
+		slf4jLog.error("msg error");
+		Exception e = new Exception("EXCEPTION");
+		slf4jLog.trace("msg trace",e);
+		slf4jLog.debug("msg debug",e);
+		slf4jLog.info("msg info",e);
+		slf4jLog.warn("msg warm",e);
+		slf4jLog.error("msg error",e);
     }
     
 	public static void main( String[] args )

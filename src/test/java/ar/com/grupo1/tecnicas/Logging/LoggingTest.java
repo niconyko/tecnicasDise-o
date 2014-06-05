@@ -197,4 +197,11 @@ public class LoggingTest {
 		logging.addTarget("ar.com.grupo1.tecnicas.Logging.CustomTarget");
 		assertTrue(logging.log("message", "DEBUG"));
 	}
+	
+	@Test
+	public void printThrowable() {
+		Logging logging = new Logging(logName);
+		Exception e = new Exception("Hay throwable");
+		assertTrue(logging.log("message", e,  "DEBUG"));
+	}
 }
