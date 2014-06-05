@@ -15,6 +15,8 @@ public class LoggerFactoryAdapter implements org.slf4j.ILoggerFactory {
 		org.slf4j.Logger slf4jLogger = loggerMap.get(logName);
 	    if (slf4jLogger == null) {
 	    	Logging log = LoggerFactory.getLogger(logName);
+	    	Target consoleTarget = new ConsoleTarget();
+	    	log.addTarget(consoleTarget);
 	    	slf4jLogger = new LoggerAdapter(log);
 	    	loggerMap.put(logName, slf4jLogger);
 	    }
