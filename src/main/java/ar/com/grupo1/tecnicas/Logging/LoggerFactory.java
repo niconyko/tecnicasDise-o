@@ -60,7 +60,4 @@ public  class LoggerFactory {
 		manager.remove(index);
 		return true;
 	}
-	
-		
-	
 }

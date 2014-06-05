@@ -79,7 +79,5 @@ public class LoggerFactoryTest {
 	
 		assertFalse(LoggerFactory.getLogger(name) == logging1);
 		assertTrue(LoggerFactory.getLogger(name2) == logging2);
-	}
-	
-	
+	}	
 }
