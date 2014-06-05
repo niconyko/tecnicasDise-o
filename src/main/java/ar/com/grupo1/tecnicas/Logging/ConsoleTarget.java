@@ -3,9 +3,8 @@ package ar.com.grupo1.tecnicas.Logging;
 public class ConsoleTarget extends Target {
 
 	@Override
-	void log(Context context, Configuration configuration) {
-		String finalString = context.generateMessage(configuration);
-		System.out.println(finalString);
+	void log(String message) {
+		System.out.println(message);
 	}
 
 	@Override

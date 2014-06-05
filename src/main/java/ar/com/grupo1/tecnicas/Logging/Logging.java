@@ -40,12 +40,13 @@ public class Logging implements ILogging{
 			return false;
 		}
 	}
-	public boolean log(String message, String level) {
-		context = new Context(name, level, message, config.getDatePattern(), config.getDelimeter());
-	
-		if(levelLog.isValid(level) && this.regexFilterAccepted(message) && this.customFilterLoggingMessage(message)){
+	public boolean log(String userMessage, String level) {
+		context = new Context(name, level, userMessage, config.getDatePattern(), config.getDelimeter());
+		
+		String messageOut = context.generateMessage(config);		
+		if(levelLog.isValid(level) && this.regexFilterAccepted(messageOut) && this.customFilterLoggingMessage(messageOut)){
 			for (Target target : targets) {
-				target.log(context, config);
+				target.log(messageOut);
 			}
 			return true;
 		 }

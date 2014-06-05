@@ -13,8 +13,8 @@ public class FileTarget extends Target{
 	}
 	
 	@Override
-	void log(Context context, Configuration configuration) {
-		String message = context.generateMessage(configuration);
+	void log(String message) {
+
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(destination, true)))) {
 		    out.println(message);
 		    out.close();
