@@ -6,7 +6,7 @@ public class EmptyFilter implements FilterCustom {
 	}
 
 	@Override
-	public boolean filter(String message, Context context) {
+	public boolean filter(String message) {
 		return true;
 	}
 }
