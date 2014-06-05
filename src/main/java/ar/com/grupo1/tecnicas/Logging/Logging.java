@@ -34,9 +34,8 @@ public class Logging implements ILogging{
 	
 		try {
 			Class<?> filterClass = Class.forName(customClassFilterName);
-			
 			FilterCustom filter = (FilterCustom) filterClass.newInstance();
-			return filter.filter(message, context);
+			return filter.filter(message);
 		} catch (Exception e) {
 			return false;
 		}
@@ -112,7 +111,6 @@ public class Logging implements ILogging{
 	public void addTarget(String Name){
 		try {
 			Class<?> targetClass = Class.forName(name);
-			
 			Target target = (Target) targetClass.newInstance();
 			targets.add(target);
 		} catch (Exception e) {
