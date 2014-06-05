@@ -15,6 +15,7 @@ public class Logging implements ILogging{
 	private Context context;
 	private Configuration config;
 	
+	
 	public Logging (String name) {
 		targets = new ArrayList<Target>();
 		config = new Configuration(name);
@@ -32,9 +33,9 @@ public class Logging implements ILogging{
 		if (customClassFilterName.equals("")) return true;
 	
 		try {
-			Class<?> filtro = Class.forName(customClassFilterName);
+			Class<?> filterClass = Class.forName(customClassFilterName);
 			
-			filterCustom filter = (filterCustom) filtro.newInstance();
+			FilterCustom filter = (FilterCustom) filterClass.newInstance();
 			return filter.filter(message, context);
 		} catch (Exception e) {
 			return false;
@@ -101,6 +102,16 @@ public class Logging implements ILogging{
 	
 	public int TargetsCount() {
 		return targets.size();
+	}
+	
+	public void addTarget(String Name){
+		try {
+			Class<?> targetClass = Class.forName(name);
+			
+			Target target = (Target) targetClass.newInstance();
+			targets.add(target);
+		} catch (Exception e) {
+		}	
 	}
 	
 	@Override

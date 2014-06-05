@@ -15,7 +15,6 @@ import org.xml.sax.SAXException;
  
 
 public class ParserFileXml extends ParserFile {
-	private String logName;
 	
 	public ParserFileXml (String fileProperties, String logName){
 		filename = fileProperties;
