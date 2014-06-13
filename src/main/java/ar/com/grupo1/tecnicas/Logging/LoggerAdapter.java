@@ -4,10 +4,10 @@ import org.slf4j.Marker;
 
 public class LoggerAdapter implements org.slf4j.Logger{
 	
-	Logging log;
+	MultiTargetLogger log;
 	String name;
 	
-	LoggerAdapter(Logging originalLog) {
+	LoggerAdapter(MultiTargetLogger originalLog) {
 		log = originalLog;
 		name = originalLog.getName();
 	}

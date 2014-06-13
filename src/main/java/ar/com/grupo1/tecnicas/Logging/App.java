@@ -7,7 +7,7 @@ public class App
 {
 	
     public static void nombreDelMetodo(){
-    	Logging log = new Logging("Name");
+    	MultiTargetLogger log = new MultiTargetLogger("Name");
     	Target consoleTarget = new ConsoleTarget();
     	log.addTarget(consoleTarget);
     	Target fileTarget = new FileTarget("myTarget.log");

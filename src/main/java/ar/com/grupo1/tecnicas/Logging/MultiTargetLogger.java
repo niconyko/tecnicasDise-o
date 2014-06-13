@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 
-public class Logging implements ILogging{
+public class MultiTargetLogger implements Logger{
 	private String name = "";
 	private String level = "";
 	private String format = "";
@@ -16,7 +16,7 @@ public class Logging implements ILogging{
 	private Configuration config;
 	
 	
-	public Logging (String name) {
+	public MultiTargetLogger (String name) {
 		targets = new ArrayList<Target>();
 		config = new Configuration(name);
 		levelLog = new Level(config.getFilterLevel() );
@@ -125,10 +125,10 @@ public class Logging implements ILogging{
 	
 	@Override
 	public boolean equals(Object object){
-		if(!(object instanceof Logging)){
+		if(!(object instanceof MultiTargetLogger)){
 			return false;
 		}
-		Logging otherLoggin = (Logging) object;
+		MultiTargetLogger otherLoggin = (MultiTargetLogger) object;
 		if(this.name.equals(otherLoggin.getName())){
 			return true;
 		}

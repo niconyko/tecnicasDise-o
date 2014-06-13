@@ -2,7 +2,7 @@ package ar.com.grupo1.tecnicas.Logging;
 
 
 
-public interface ILogging {
+public interface Logger {
 	//public enum Level {DEBUG, INFO, WARN, ERROR, FATAL, OFF}
 	boolean log (String message, String level);
 	void setLevel(String level);

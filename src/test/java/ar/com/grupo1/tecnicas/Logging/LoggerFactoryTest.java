@@ -64,7 +64,7 @@ public class LoggerFactoryTest {
 	public void getLogger(){
 		LoggerFactory.reset();
 		assertNotEquals(LoggerFactory.getLogger(name), null);
-		Logging logger = LoggerFactory.getLogger(name);
+		MultiTargetLogger logger = LoggerFactory.getLogger(name);
 		assertNotEquals(logger,null);
 		assertEquals(logger.getName(), name);
 	}
@@ -73,8 +73,8 @@ public class LoggerFactoryTest {
 	@Test
 	public void removeLogWhenThereAreMoreThanOneLog(){
 		LoggerFactory.reset();
-		Logging logging1 = LoggerFactory.getLogger(name);
-		Logging logging2 = LoggerFactory.getLogger(name2);
+		MultiTargetLogger logging1 = LoggerFactory.getLogger(name);
+		MultiTargetLogger logging2 = LoggerFactory.getLogger(name2);
 		assertTrue(LoggerFactory.removeLog(name));
 	
 		assertFalse(LoggerFactory.getLogger(name) == logging1);

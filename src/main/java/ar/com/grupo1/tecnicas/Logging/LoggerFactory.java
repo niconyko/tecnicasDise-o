@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public  class LoggerFactory {
 	private static int ERROR = -1;
-	private static ArrayList<Logging> manager = new ArrayList<>();
+	private static ArrayList<MultiTargetLogger> manager = new ArrayList<>();
 
 	public static void reset(){
 		manager.clear();
@@ -14,17 +14,17 @@ public  class LoggerFactory {
 		return manager.size();
 	}
 	
-	private static Logging addLog(String nameLog){
-		Logging logging = new Logging(nameLog); 
+	private static MultiTargetLogger addLog(String nameLog){
+		MultiTargetLogger logging = new MultiTargetLogger(nameLog); 
 		manager.add(logging);
 		return logging;
 	}
 	
 	private static int getLoggingIndex(String name){
-		Iterator<Logging> iter = manager.iterator();
+		Iterator<MultiTargetLogger> iter = manager.iterator();
 		int index = 0;
 		while(iter.hasNext()){
-			Logging logging = iter.next();
+			MultiTargetLogger logging = iter.next();
 			if (logging.getName().equals(name)) {
 				return index;
 			}
@@ -33,10 +33,10 @@ public  class LoggerFactory {
 		return ERROR;
 	}
 	
-	private static Logging getOneLogger(String name){
-		Iterator<Logging> iter = manager.iterator();
+	private static MultiTargetLogger getOneLogger(String name){
+		Iterator<MultiTargetLogger> iter = manager.iterator();
 		while(iter.hasNext()){
-			Logging logging = iter.next();
+			MultiTargetLogger logging = iter.next();
 			if (logging.getName().equals(name)){
 				return logging;
 			}
@@ -44,7 +44,7 @@ public  class LoggerFactory {
 		return null;
 	}
 	
-	public static Logging getLogger(String Name){
+	public static MultiTargetLogger getLogger(String Name){
 		if (containsLog(Name)){
 			return getOneLogger(Name);
 		}
@@ -52,9 +52,9 @@ public  class LoggerFactory {
 	}
 	
 	private static boolean containsLog(String name){
-		Iterator<Logging> iter = manager.iterator();
+		Iterator<MultiTargetLogger> iter = manager.iterator();
 		while(iter.hasNext()){
-			Logging logging = iter.next();
+			MultiTargetLogger logging = iter.next();
 			if (logging.getName().equals(name)){
 				return true;
 			}
