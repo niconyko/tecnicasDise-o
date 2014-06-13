@@ -28,7 +28,9 @@ public class Context {
 	}
 
 	private String processDate(String datePattern) {
-		if(datePattern == null) return "";
+		if(datePattern == null){ 
+			return "";
+		}
 		SimpleDateFormat date = new SimpleDateFormat(datePattern);
 		return date.format(new Date());
 	}
@@ -57,13 +59,14 @@ public class Context {
 	private String generateJson(){
 		String date =  processDate("yyyy-MM-ddzhh:mm:ss"); 
 		return "{\"datetime\": \""+date+"\",\"level\": \""+this.level+"\", \"logger\": \""+this.name+"\" ,\"message\": \""+this.message +"\"}";
-
 	}
 
 	protected String generateMessage(Configuration configuration) {
 		ArrayList<String> dataList = configuration.getConfiguration();
 		String finalString = "";
-		if( dataList.get(0) == "json") finalString += generateJson();
+		if( dataList.get(0).equals("json") ){
+			finalString += generateJson();
+		}
 		else{
 			
 			for (String key : dataList) {
@@ -79,7 +82,9 @@ public class Context {
 	
 	@Override
 	public boolean equals(Object object){
-		if(!(object instanceof Context)) return false;
+		if(!(object instanceof Context)){
+			return false;
+		}
 		Context context = (Context) object;
 		return (this.nameMethod == context.getData("%F") && this.lineNumber == getData("%L")
 				&& this.threadName == context.getData("%t") && this.level == context.getData("%p") );	

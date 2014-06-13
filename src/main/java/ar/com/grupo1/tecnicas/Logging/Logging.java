@@ -30,7 +30,9 @@ public class Logging implements ILogging{
 	}
 	
 	private boolean customFilterLoggingMessage(String message){
-		if (customClassFilterName.equals("")) return true;
+		if (customClassFilterName.equals("")){
+			return true;
+		}
 	
 		try {
 			Class<?> filterClass = Class.forName(customClassFilterName);
@@ -97,7 +99,9 @@ public class Logging implements ILogging{
 	}
 	
 	public void addTarget(Target target) {
-		if (targets.contains(target)) return;
+		if (targets.contains(target)){
+			return;
+		}
 		targets.add(target);
 	}
 	
@@ -121,9 +125,13 @@ public class Logging implements ILogging{
 	
 	@Override
 	public boolean equals(Object object){
-		if(!(object instanceof Logging)) return false;
+		if(!(object instanceof Logging)){
+			return false;
+		}
 		Logging otherLoggin = (Logging) object;
-		if(this.name.equals(otherLoggin.getName())) return true;
+		if(this.name.equals(otherLoggin.getName())){
+			return true;
+		}
 		return this == object;	
 	}
 	 

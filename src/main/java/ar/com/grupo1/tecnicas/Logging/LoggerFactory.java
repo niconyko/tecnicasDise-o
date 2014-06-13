@@ -25,7 +25,9 @@ public  class LoggerFactory {
 		int index = 0;
 		while(iter.hasNext()){
 			Logging logging = iter.next();
-			if (logging.getName().equals(name))	return index;
+			if (logging.getName().equals(name)) {
+				return index;
+			}
 			index++;
 		}
 		return ERROR;
@@ -35,13 +37,17 @@ public  class LoggerFactory {
 		Iterator<Logging> iter = manager.iterator();
 		while(iter.hasNext()){
 			Logging logging = iter.next();
-			if (logging.getName().equals(name))	return logging;
+			if (logging.getName().equals(name)){
+				return logging;
+			}
 		}
 		return null;
 	}
 	
 	public static Logging getLogger(String Name){
-		if (containsLog(Name)) return getOneLogger(Name);
+		if (containsLog(Name)){
+			return getOneLogger(Name);
+		}
 		return addLog(Name);
 	}
 	
@@ -49,13 +55,17 @@ public  class LoggerFactory {
 		Iterator<Logging> iter = manager.iterator();
 		while(iter.hasNext()){
 			Logging logging = iter.next();
-			if (logging.getName().equals(name))	return true;
+			if (logging.getName().equals(name)){
+				return true;
+			}
 		}
 		return false;
 	}
 		
 	public static boolean removeLog(String nameLog){
-		if(!containsLog(nameLog)) return false;
+		if(!containsLog(nameLog)){
+			return false;
+		}
 		int index = getLoggingIndex(nameLog);
 		manager.remove(index);
 		return true;

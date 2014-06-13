@@ -43,7 +43,7 @@ public class ContextTest {
 		String dateData = context.getData("%d");                  
 		SimpleDateFormat date = new SimpleDateFormat(datePattern);
 		
-		assertEquals( (String)date.format(new Date()), dateData);
+		assertEquals( date.format(new Date()), dateData);
 	}
 	
 	@Test

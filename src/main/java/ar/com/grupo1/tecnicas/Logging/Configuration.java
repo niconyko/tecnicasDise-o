@@ -17,9 +17,13 @@ public class Configuration {
 	
 	private ParserFile loadConfiguration(String sourceName) {
 		File f = new File(fileProperties);
-		if(f.isFile()) return new ParserFileProperties(fileProperties, sourceName);
+		if(f.isFile()) {
+			return new ParserFileProperties(fileProperties, sourceName);
+		}
 		f = new File(fileXML);
-		if(f.isFile()) return new ParserFileXml(fileXML, sourceName);
+		if(f.isFile()){
+			return new ParserFileXml(fileXML, sourceName);
+		}
 		return new ParserDefault();
 	}
 	

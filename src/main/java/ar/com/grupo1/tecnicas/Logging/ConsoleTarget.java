@@ -9,8 +9,7 @@ public class ConsoleTarget extends Target {
 
 	@Override
 	public boolean equals(Object object){
-		if(!(object instanceof ConsoleTarget)) return false;
-		return true;	
+		return object instanceof ConsoleTarget;
 	}
 	
 	@Override

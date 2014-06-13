@@ -29,7 +29,9 @@ public class FileTarget extends Target{
 	
 	@Override
 	public boolean equals(Object object){
-		if(!(object instanceof FileTarget)) return false;
+		if(!(object instanceof FileTarget)){
+			return false;
+		}
 		FileTarget fileTarget = (FileTarget) object;
 		return (this.destination.equals(fileTarget.getTargetDestination()));	
 	}

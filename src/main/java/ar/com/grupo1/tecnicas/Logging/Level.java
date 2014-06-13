@@ -21,8 +21,9 @@ public class Level {
 	public boolean isValid( String otherlevel ){
 		enumLevel aux = enumLevel.valueOf(otherlevel);
 		
-		if( level.compareTo(aux) <= 0)
-			return true;
+		if( level.compareTo(aux) <= 0){
+			return true;			
+		}
 		return false;
 	}
 		

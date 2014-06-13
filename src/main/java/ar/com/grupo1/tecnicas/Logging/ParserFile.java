@@ -47,13 +47,17 @@ abstract class ParserFile {
 	
 	protected void processDelimeter(String delimiter) {
 		String readDelimeter = delimiter;
-		if (readDelimeter == null) return;
+		if (readDelimeter == null){
+			return;
+		}
 		this.delimeter = readDelimeter;
 	}
 	
 	protected void processLevel(String level) {
 		String readLevel = level;
-		if (readLevel == null) return;
+		if (readLevel == null){
+			return;
+		}
 		this.level = readLevel;
 	}
 	
