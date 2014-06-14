@@ -36,4 +36,28 @@ public class ParserFileXmlTest {
 			assertEquals(parser.getFilterLevel(),level);
 		}
 		
+		@Test
+		public void ParserXmlNotExistLogName() {
+			ParserFileXml parser = new ParserFileXml("logger-config.xml", logName);			
+			parser.parser();
+			assertEquals(parser.getFilterLevel(),"TRACE");
+			assertEquals(parser.getDelimeter(),"-");
+			assertEquals(parser.getDatePattern(),null);			
+			
+		}
+		
+
+		@Test
+		public void ParserXmlExistLogName() {
+			ParserFileXml parser = new ParserFileXml("logger-config.xml", "Name");			
+			parser.parser();
+			assertEquals(parser.getFilterLevel(),"WARN");
+			assertEquals(parser.getDelimeter(),"**");
+			assertEquals(parser.getDatePattern(),"HH:mm:ss");		
+			
+		}
+		
+		
+		
+		
 }

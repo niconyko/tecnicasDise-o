@@ -22,7 +22,7 @@ public class ParserFileXml extends ParserFile {
 	}
 
 	public ArrayList<String> parser() {
-	
+		
 		File fXmlFile = new File(filename);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
