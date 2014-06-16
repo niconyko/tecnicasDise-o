@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 public class App 
 {
 	
-    public static void nombreDelMetodo(){
+    public static void methodName(){
     	MultiTargetLogger log = new MultiTargetLogger("Name");
     	Target consoleTarget = new ConsoleTarget();
     	log.addTarget(consoleTarget);
@@ -32,6 +32,6 @@ public class App
     
 	public static void main( String[] args )
     {
-    	nombreDelMetodo();  	
+    	methodName();  	
     }
 }

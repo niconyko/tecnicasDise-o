@@ -74,7 +74,7 @@ public class Context {
 				finalString += this.getDelimeter();
 			}
 			
-			// Elimina el ultimo delimeter
+			// Removes las delimeter
 			finalString = finalString.substring(0, finalString.length() - 1);
 		}
 		return finalString;

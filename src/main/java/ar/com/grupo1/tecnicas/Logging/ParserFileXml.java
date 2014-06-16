@@ -31,7 +31,7 @@ public class ParserFileXml extends ParserFile {
 		try {
 			dBuilder = dbFactory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Parser Counfiguration Error");
 			e.printStackTrace();
 		}	
 		try {
@@ -57,10 +57,10 @@ public class ParserFileXml extends ParserFile {
 			}		
 					
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
+			System.err.println("SAX Error");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Input-Output Error");
 			e.printStackTrace();
 		}	
 	
