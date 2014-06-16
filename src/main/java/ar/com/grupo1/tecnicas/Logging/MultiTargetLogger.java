@@ -3,6 +3,8 @@ package ar.com.grupo1.tecnicas.Logging;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
 
 public class MultiTargetLogger implements Logger{
 	private String name = "";
@@ -46,7 +48,7 @@ public class MultiTargetLogger implements Logger{
 		context = new Context(name, level, userMessage, config.getDatePattern(), config.getDelimeter());
 		
 		String messageOut = context.generateMessage(config);		
-		if(levelLog.isValid(level) && this.regexFilterAccepted(messageOut) && this.customFilterLoggingMessage(messageOut)){
+		if(levelLog.isValid(enumLevel.valueOf(level)) && this.regexFilterAccepted(messageOut) && this.customFilterLoggingMessage(messageOut)){
 			for (Target target : targets) {
 				target.log(messageOut);
 			}

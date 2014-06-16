@@ -4,12 +4,12 @@ package ar.com.grupo1.tecnicas.Logging;
 
 public class Level {
 
-	private enum enumLevel {TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF};
+	public enum enumLevel {TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF};
 	private enumLevel level;
 	
-	public Level(String filterLevel) {
+	public Level(enumLevel filterLevel) {
 		
-		level = enumLevel.valueOf(filterLevel);
+		level = filterLevel;
 		
 	} 
 	
@@ -18,10 +18,9 @@ public class Level {
 		
 	}
 	
-	public boolean isValid( String otherlevel ){
-		enumLevel aux = enumLevel.valueOf(otherlevel);
+	public boolean isValid( enumLevel otherlevel ){
 		
-		if( level.compareTo(aux) <= 0){
+		if( level.compareTo(otherlevel) <= 0){
 			return true;			
 		}
 		return false;

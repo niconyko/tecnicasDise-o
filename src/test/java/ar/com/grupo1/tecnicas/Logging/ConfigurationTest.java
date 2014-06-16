@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
 public class ConfigurationTest {
 
 	@Test
@@ -17,10 +19,10 @@ public class ConfigurationTest {
 
 	@Test
 	public void SetFilterLevel() {
-		String level = "2";
 		String logName = "Juan";
+		String level = "TRACE";
 		Configuration conf = new Configuration(logName);
 		conf.setFilterLevel(level);
-		assertEquals(conf.getFilterLevel(),level);
+		assertEquals(conf.getFilterLevel(),enumLevel.TRACE);
 	}
 }
