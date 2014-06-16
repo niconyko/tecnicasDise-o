@@ -32,7 +32,7 @@ public class LevelTest{
 	@Test
 	public void testSetLevelAndTheLevelIsValidWithEqualLevel() {
 		Level level = new Level(enumLevel.DEBUG);
-		level.setLevel("WARN");		
+		level.setLevel(enumLevel.WARN);		
 		assert(  level.isValid(enumLevel.WARN) );
 	}
 	

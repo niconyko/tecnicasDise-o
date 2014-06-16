@@ -72,7 +72,7 @@ public class MultiTargetLogger implements Logger{
 	
 	public void setLevel(String level) {
 		this.level = level;
-		levelLog.setLevel(level);
+		levelLog.setLevel(enumLevel.valueOf(level));
 	}
 	
 	public String getLevel() {
