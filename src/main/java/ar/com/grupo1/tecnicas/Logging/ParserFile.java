@@ -45,26 +45,31 @@ abstract class ParserFile {
 		else TranslateFormatIntoPattern(format);
 	}
 	
-	protected void processDelimeter(String delimiter) {
-		String readDelimeter = delimiter;
-		if (readDelimeter == null){
-			return;
-		}
-		this.delimeter = readDelimeter;
+	/*
+	protected void processDelimeter(String readDelimiter) {
+		if (readDelimiter == null){	return;	}
+		this.delimeter = readDelimiter;
 	}
 	
-	protected void processLevel(String level) {
-		String readLevel = level;
-		if (readLevel == null){
-			return;
-		}
+	protected void processLevel(String readLevel) {
+		if (readLevel == null){	return;}
 		this.level = readLevel;
+	}
+	
+	*/
+	
+	protected String process(String value){
+		if(value == null){ return null;}
+		return value;
+		
 	}
 	
 	public ArrayList<String> setFormat(String format){
 		TranslateFormatIntoPattern(format);
 		return listConf;
 	}
+	
+	
 	
 	public String getDatePattern(){
 		return this.datePattern;

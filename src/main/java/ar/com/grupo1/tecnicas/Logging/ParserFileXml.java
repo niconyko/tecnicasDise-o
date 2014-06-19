@@ -1,3 +1,4 @@
+
 package ar.com.grupo1.tecnicas.Logging;
 import java.io.File;
 import java.io.IOException;
@@ -50,8 +51,8 @@ public class ParserFileXml extends ParserFile {
 					String tag = eElement.getElementsByTagName("tag").item(0).getTextContent();
 					if( tag.equals(sourceName) ){
 						processFormat(eElement.getElementsByTagName("format").item(0).getTextContent() );
-						processDelimeter(eElement.getElementsByTagName("delimeter").item(0).getTextContent());
-						processLevel(eElement.getElementsByTagName("level").item(0).getTextContent());		
+						this.delimeter = process(eElement.getElementsByTagName("delimeter").item(0).getTextContent());
+						this.level = process(eElement.getElementsByTagName("level").item(0).getTextContent());		
 					}
 				}
 			}		

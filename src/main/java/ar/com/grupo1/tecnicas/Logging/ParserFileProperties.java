@@ -24,8 +24,8 @@ public class ParserFileProperties extends ParserFile {
 			input = new FileInputStream(filename);
 			prop.load(input);
 			processFormat(prop.getProperty(sourceName + ".format"));
-			processDelimeter( prop.getProperty(sourceName + ".delimeter"));
-			processLevel(prop.getProperty(sourceName + ".level"));
+			this.delimeter = process( prop.getProperty(sourceName + ".delimeter"));
+			this.level = process(prop.getProperty(sourceName + ".level"));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
