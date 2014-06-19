@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
 public class ParserFilePropertiesTest {
 		String fileName = "";
 		String logName = "name";
@@ -29,10 +31,10 @@ public class ParserFilePropertiesTest {
 
 		@Test
 		public void SetFilterLevel() {
-			String level = "Debug";
+			String level = "DEBUG";
 			ParserFileProperties parser = new ParserFileProperties(fileName, logName);
 			parser.setFilterLevel(level);
-			assertEquals(parser.getFilterLevel(),level);
+			assertEquals(parser.getFilterLevel(),enumLevel.DEBUG);
 		}
 		
 }

@@ -3,6 +3,8 @@ package ar.com.grupo1.tecnicas.Logging;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
 abstract class ParserFile {
 	
 	protected String filename;
@@ -10,7 +12,7 @@ abstract class ParserFile {
 	protected ArrayList<String> listConf;
 	protected String datePattern = null;
 	protected String delimeter = "-";
-	protected String level = "TRACE";
+	protected enumLevel level = enumLevel.TRACE;
 	abstract ArrayList<String> parser();
 	
 	protected void processDatePattern() {
@@ -51,9 +53,13 @@ abstract class ParserFile {
 		this.delimeter = readDelimiter;
 	}
 	
-	protected void processLevel(String readLevel) {
-		if (readLevel == null){	return;}
-		this.level = readLevel;
+
+	protected void processLevel(String level) {
+		String readLevel = level;
+		if (readLevel == null){
+			return;
+		}
+		this.level = enumLevel.valueOf(readLevel);
 	}
 	
 	*/
@@ -79,7 +85,7 @@ abstract class ParserFile {
 		return this.delimeter;
 	}
 	
-	public String getFilterLevel() {
+	public enumLevel getFilterLevel() {
 		return this.level;
 	}
 	
@@ -88,7 +94,7 @@ abstract class ParserFile {
 	}
 	
 	public void setFilterLevel(String level) {
-		this.level = level;
+		this.level = enumLevel.valueOf(level);
 	}
 
 }

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
 public class ParserFileXmlTest {
 		String fileName = "";
 		String logName = "name";
@@ -30,17 +32,17 @@ public class ParserFileXmlTest {
 
 		@Test
 		public void SetFilterLevel() {
-			String level = "Debug";
+			String level = "DEBUG";
 			ParserFileXml parser = new ParserFileXml(fileName, logName);
 			parser.setFilterLevel(level);
-			assertEquals(parser.getFilterLevel(),level);
+			assertEquals(parser.getFilterLevel(),enumLevel.DEBUG);
 		}
 		
 		@Test
 		public void ParserXmlNotExistLogName() {
 			ParserFileXml parser = new ParserFileXml("logger-config.xml", logName);			
 			parser.parser();
-			assertEquals(parser.getFilterLevel(),"TRACE");
+			assertEquals(parser.getFilterLevel(),enumLevel.TRACE);
 			assertEquals(parser.getDelimeter(),"-");
 			assertEquals(parser.getDatePattern(),null);			
 			
@@ -51,7 +53,7 @@ public class ParserFileXmlTest {
 		public void ParserXmlExistLogName() {
 			ParserFileXml parser = new ParserFileXml("logger-config.xml", "Name");			
 			parser.parser();
-			assertEquals(parser.getFilterLevel(),"WARN");
+			assertEquals(parser.getFilterLevel(),enumLevel.WARN);
 			assertEquals(parser.getDelimeter(),"**");
 			assertEquals(parser.getDatePattern(),"HH:mm:ss");		
 			

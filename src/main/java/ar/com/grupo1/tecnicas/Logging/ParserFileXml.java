@@ -13,6 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
  
 
 public class ParserFileXml extends ParserFile {
@@ -32,7 +33,7 @@ public class ParserFileXml extends ParserFile {
 		try {
 			dBuilder = dbFactory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Parser Counfiguration Error");
 			e.printStackTrace();
 		}	
 		try {
@@ -52,16 +53,16 @@ public class ParserFileXml extends ParserFile {
 					if( tag.equals(sourceName) ){
 						processFormat(eElement.getElementsByTagName("format").item(0).getTextContent() );
 						this.delimeter = process(eElement.getElementsByTagName("delimeter").item(0).getTextContent());
-						this.level = process(eElement.getElementsByTagName("level").item(0).getTextContent());		
+						this.level = enumLevel.valueOf( process(eElement.getElementsByTagName("level").item(0).getTextContent()));		
 					}
 				}
 			}		
 					
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
+			System.err.println("SAX Error");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Input-Output Error");
 			e.printStackTrace();
 		}	
 	

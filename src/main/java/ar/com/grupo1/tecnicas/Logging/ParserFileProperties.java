@@ -4,9 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
 import java.util.Properties;
 
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
 
 public class ParserFileProperties extends ParserFile {
 
@@ -25,7 +27,7 @@ public class ParserFileProperties extends ParserFile {
 			prop.load(input);
 			processFormat(prop.getProperty(sourceName + ".format"));
 			this.delimeter = process( prop.getProperty(sourceName + ".delimeter"));
-			this.level = process(prop.getProperty(sourceName + ".level"));
+			this.level = enumLevel.valueOf(process(prop.getProperty(sourceName + ".level")));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {

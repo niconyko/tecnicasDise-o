@@ -3,6 +3,8 @@ package ar.com.grupo1.tecnicas.Logging;
 import java.io.File;
 import java.util.ArrayList;
 
+import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
 public class Configuration {
 	
 	private ParserFile parser;
@@ -43,7 +45,7 @@ public class Configuration {
 		return parser.getDelimeter();
 	}
 	
-	public String getFilterLevel() {
+	public enumLevel getFilterLevel() {
 		return parser.getFilterLevel();
 	}
 	
