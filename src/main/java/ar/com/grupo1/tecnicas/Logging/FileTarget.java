@@ -18,8 +18,10 @@ public class FileTarget extends Target{
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(destination, true)))) {
 		    out.println(message);
 		    out.close();
+		   
 		}catch (Exception e) {
 			//handel exception
+			
 		};
 	}
 	
