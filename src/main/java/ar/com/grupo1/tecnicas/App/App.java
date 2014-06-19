@@ -1,8 +1,5 @@
 package ar.com.grupo1.tecnicas.App;
 
-import org.slf4j.Logger;
-
-import ar.com.grupo1.tecnicas.Logging.LoggerFactoryAdapter;
 import ar.com.grupo1.tecnicas.Target.ConsoleTarget;
 import ar.com.grupo1.tecnicas.Target.FileTarget;
 import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
@@ -20,20 +17,6 @@ public class App
     	log.addTarget(fileTarget);
     	//log.setFormat("%p %t %% %n %F %M %d{ss:mm:HH} %L %m");
     	log.log("Hola", "WARN");
-    	
-    	LoggerFactoryAdapter logFactory = new LoggerFactoryAdapter();
-		Logger slf4jLog = logFactory.getLogger("Juan");
-		slf4jLog.trace("msg trace");
-		slf4jLog.debug("msg debug");
-		slf4jLog.info("msg info");
-		slf4jLog.warn("msg warm");
-		slf4jLog.error("msg error");
-		Exception e = new Exception("EXCEPTION");
-		slf4jLog.trace("msg trace",e);
-		slf4jLog.debug("msg debug",e);
-		slf4jLog.info("msg info",e);
-		slf4jLog.warn("msg warm",e);
-		slf4jLog.error("msg error",e);
     }
     
 	public static void main( String[] args )

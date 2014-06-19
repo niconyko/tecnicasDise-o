@@ -3,7 +3,6 @@ package ar.com.grupo1.tecnicas.Parser;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import ar.com.grupo1.tecnicas.Configuration.Level;
 import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
 
 public abstract class ParserFile {
@@ -48,35 +47,20 @@ public abstract class ParserFile {
 		else TranslateFormatIntoPattern(format);
 	}
 	
-	/*
-	protected void processDelimeter(String readDelimiter) {
-		if (readDelimiter == null){	return;	}
-		this.delimeter = readDelimiter;
+	protected void processDelimeter(String readDelimeter) {
+		if (readDelimeter == null) return;
+		this.delimeter = readDelimeter;
 	}
-	
 
-	protected void processLevel(String level) {
-		String readLevel = level;
-		if (readLevel == null){
-			return;
-		}
+	protected void processLevel(String readLevel) {
+		if (readLevel == null) return;
 		this.level = enumLevel.valueOf(readLevel);
-	}
-	
-	*/
-	
-	protected String process(String value){
-		if(value == null){ return null;}
-		return value;
-		
 	}
 	
 	public ArrayList<String> setFormat(String format){
 		TranslateFormatIntoPattern(format);
 		return listConf;
 	}
-	
-	
 	
 	public String getDatePattern(){
 		return this.datePattern;

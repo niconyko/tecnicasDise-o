@@ -1,5 +1,4 @@
 package ar.com.grupo1.tecnicas.Configuration;
-import ar.com.grupo1.tecnicas.Parser.*;
 import java.io.File;
 import java.util.ArrayList;
 

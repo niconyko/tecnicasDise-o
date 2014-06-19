@@ -1,6 +1,5 @@
 package ar.com.grupo1.tecnicas.Target;
 
-import ar.com.grupo1.tecnicas.Configuration.*;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 

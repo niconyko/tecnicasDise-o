@@ -1,0 +1,14 @@
+<set>
+	<settings>
+		<tag>Juan</tag>
+		<format>%d{HH:mm:ss} %p %t %m %% %n %L %g</format>
+		<delimeter>//</delimeter>
+		<level>DEBUG</level>
+	</settings>   
+	<settings> 
+		<tag>Pepe</tag>
+		<format>%F %M %L %g</format>
+		<delimeter>@</delimeter>
+		<level>OFF</level>
+	</settings>
+</set>

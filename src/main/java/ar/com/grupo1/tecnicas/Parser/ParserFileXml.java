@@ -13,9 +13,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import ar.com.grupo1.tecnicas.Configuration.Level;
-import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
  
 
 public class ParserFileXml extends ParserFile {
@@ -54,8 +51,8 @@ public class ParserFileXml extends ParserFile {
 					String tag = eElement.getElementsByTagName("tag").item(0).getTextContent();
 					if( tag.equals(sourceName) ){
 						processFormat(eElement.getElementsByTagName("format").item(0).getTextContent() );
-						this.delimeter = process(eElement.getElementsByTagName("delimeter").item(0).getTextContent());
-						this.level = enumLevel.valueOf( process(eElement.getElementsByTagName("level").item(0).getTextContent()));		
+						processDelimeter(eElement.getElementsByTagName("delimeter").item(0).getTextContent());
+						processLevel(eElement.getElementsByTagName("level").item(0).getTextContent());		
 					}
 				}
 			}		
