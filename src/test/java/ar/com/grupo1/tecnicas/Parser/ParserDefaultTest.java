@@ -1,4 +1,4 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Parser;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Parser.ParserDefault;
 
 public class ParserDefaultTest {
 	

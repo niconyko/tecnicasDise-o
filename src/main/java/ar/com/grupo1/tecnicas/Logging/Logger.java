@@ -1,5 +1,7 @@
 package ar.com.grupo1.tecnicas.Logging;
 
+import ar.com.grupo1.tecnicas.Target.Target;
+
 
 
 public interface Logger {

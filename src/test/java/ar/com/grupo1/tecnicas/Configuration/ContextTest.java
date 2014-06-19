@@ -1,4 +1,4 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Configuration;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.Test;
+
+import ar.com.grupo1.tecnicas.Configuration.Context;
 
 public class ContextTest {
 	

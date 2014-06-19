@@ -1,4 +1,4 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Configuration;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class Context {
 		return "{\"datetime\": \""+date+"\",\"level\": \""+this.level+"\", \"logger\": \""+this.name+"\" ,\"message\": \""+this.message +"\"}";
 	}
 
-	protected String generateMessage(Configuration configuration) {
+	public String generateMessage(Configuration configuration) {
 		ArrayList<String> dataList = configuration.getConfiguration();
 		String finalString = "";
 		if( dataList.get(0).equals("json") ){

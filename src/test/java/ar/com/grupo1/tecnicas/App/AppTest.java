@@ -1,4 +1,4 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.App;
 
 import static org.junit.Assert.*;
 

@@ -1,6 +1,12 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.App;
 
 import org.slf4j.Logger;
+
+import ar.com.grupo1.tecnicas.Logging.LoggerFactoryAdapter;
+import ar.com.grupo1.tecnicas.Target.ConsoleTarget;
+import ar.com.grupo1.tecnicas.Target.FileTarget;
+import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
+import ar.com.grupo1.tecnicas.Target.Target;
 
 
 public class App 

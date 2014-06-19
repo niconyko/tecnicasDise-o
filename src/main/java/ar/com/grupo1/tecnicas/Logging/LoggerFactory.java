@@ -3,6 +3,8 @@ package ar.com.grupo1.tecnicas.Logging;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
+
 public  class LoggerFactory {
 	private static int ERROR = -1;
 	private static ArrayList<MultiTargetLogger> manager = new ArrayList<>();

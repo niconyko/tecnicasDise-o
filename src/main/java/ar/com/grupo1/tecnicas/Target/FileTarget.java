@@ -1,4 +1,4 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Target;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

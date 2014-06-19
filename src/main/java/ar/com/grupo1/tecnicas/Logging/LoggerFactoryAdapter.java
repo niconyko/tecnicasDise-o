@@ -3,6 +3,10 @@ package ar.com.grupo1.tecnicas.Logging;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import ar.com.grupo1.tecnicas.Target.ConsoleTarget;
+import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
+import ar.com.grupo1.tecnicas.Target.Target;
+
 public class LoggerFactoryAdapter implements org.slf4j.ILoggerFactory {
 
 	ConcurrentMap<String, org.slf4j.Logger> loggerMap;

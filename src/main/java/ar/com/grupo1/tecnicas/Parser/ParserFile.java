@@ -1,11 +1,12 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Parser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Configuration.Level;
+import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
 
-abstract class ParserFile {
+public abstract class ParserFile {
 	
 	protected String filename;
 	protected String sourceName = null;
@@ -13,7 +14,7 @@ abstract class ParserFile {
 	protected String datePattern = null;
 	protected String delimeter = "-";
 	protected enumLevel level = enumLevel.TRACE;
-	abstract ArrayList<String> parser();
+	public abstract ArrayList<String> parser();
 	
 	protected void processDatePattern() {
 		int i = 0;

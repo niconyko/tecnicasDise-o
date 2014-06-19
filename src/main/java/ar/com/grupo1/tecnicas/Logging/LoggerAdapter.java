@@ -2,6 +2,8 @@ package ar.com.grupo1.tecnicas.Logging;
 
 import org.slf4j.Marker;
 
+import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
+
 public class LoggerAdapter implements org.slf4j.Logger{
 	
 	MultiTargetLogger log;

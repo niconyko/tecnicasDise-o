@@ -6,6 +6,10 @@ import java.util.logging.Level;
 
 import org.junit.Test;
 
+import ar.com.grupo1.tecnicas.Target.ConsoleTarget;
+import ar.com.grupo1.tecnicas.Target.FileTarget;
+import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
+
 public class LoggingTest {
 
 	String format = "this is my output format";
@@ -194,7 +198,7 @@ public class LoggingTest {
 	@Test
 	public void customTarget() {
 		MultiTargetLogger logging = new MultiTargetLogger(logName);
-		logging.addTarget("ar.com.grupo1.tecnicas.Logging.CustomTarget");
+		logging.addTarget("ar.com.grupo1.tecnicas.Target.CustomTarget");
 		assertTrue(logging.log("message", "DEBUG"));
 	}
 	

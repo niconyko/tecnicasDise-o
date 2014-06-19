@@ -1,7 +1,10 @@
 package ar.com.grupo1.tecnicas.Logging;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
+import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
 
 public class LoggerFactoryTest {
 	String name = "Name";

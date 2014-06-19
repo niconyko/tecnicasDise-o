@@ -1,4 +1,4 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Target;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.Test;
+
+import ar.com.grupo1.tecnicas.Target.FileTarget;
 
 public class FileTargetTest {
 

@@ -1,4 +1,4 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Parser;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,9 +6,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
-
-import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Configuration.Level;
+import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
 
 public class ParserFileProperties extends ParserFile {
 

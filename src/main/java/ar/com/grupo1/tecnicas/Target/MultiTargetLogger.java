@@ -1,9 +1,15 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Target;
 
+import ar.com.grupo1.tecnicas.Configuration.*;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Configuration.Configuration;
+import ar.com.grupo1.tecnicas.Configuration.Context;
+import ar.com.grupo1.tecnicas.Configuration.Level;
+import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Logging.FilterCustom;
+import ar.com.grupo1.tecnicas.Logging.Logger;
 
 
 public class MultiTargetLogger implements Logger{

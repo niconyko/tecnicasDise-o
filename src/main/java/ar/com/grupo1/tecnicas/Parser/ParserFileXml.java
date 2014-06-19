@@ -1,5 +1,5 @@
 
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Parser;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +13,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+
+import ar.com.grupo1.tecnicas.Configuration.Level;
+import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
  
 
 public class ParserFileXml extends ParserFile {

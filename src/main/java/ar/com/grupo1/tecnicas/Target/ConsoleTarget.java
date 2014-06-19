@@ -1,4 +1,5 @@
-package ar.com.grupo1.tecnicas.Logging;
+package ar.com.grupo1.tecnicas.Target;
+
 
 public class ConsoleTarget extends Target {
 

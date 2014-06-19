@@ -1,9 +1,13 @@
-package ar.com.grupo1.tecnicas.Logging;
-
+package ar.com.grupo1.tecnicas.Configuration;
+import ar.com.grupo1.tecnicas.Parser.*;
 import java.io.File;
 import java.util.ArrayList;
 
-import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
+import ar.com.grupo1.tecnicas.Parser.ParserDefault;
+import ar.com.grupo1.tecnicas.Parser.ParserFile;
+import ar.com.grupo1.tecnicas.Parser.ParserFileProperties;
+import ar.com.grupo1.tecnicas.Parser.ParserFileXml;
 
 public class Configuration {
 	
