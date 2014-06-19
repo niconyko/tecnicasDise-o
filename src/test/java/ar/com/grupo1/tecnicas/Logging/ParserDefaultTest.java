@@ -8,41 +8,41 @@ import org.junit.Test;
 
 import ar.com.grupo1.tecnicas.Logging.Level.enumLevel;
 
-public class ParserFilePropertiesTest {
-		String fileName = "";
-		String logName = "name";
+public class ParserDefaultTest {
+	
 		@Test
 		public void SetFormat() {
-			ParserFileProperties parser = new ParserFileProperties(fileName, logName);
+			ParserDefault parser = new ParserDefault();
 			ArrayList<String> conf = parser.setFormat("%p %t %% %n %F %M %d{ss:mm:HH} %L %m");
 			assertEquals(conf.size(), 9);
 			assertEquals(conf.get(0), "%p");
 			assertEquals(conf.get(1), "%t");
+			assertEquals(conf.get(4), "%F");
 			assertEquals(conf.get(8), "%m");
 		}
 		
 		@Test
 		public void SetDelimiter() {
-			String delimeter = ";";
-			ParserFileProperties parser = new ParserFileProperties(fileName, logName);
+			String delimeter = "-";
+			ParserDefault parser = new ParserDefault();
 			parser.setDelimeter(delimeter);
 			assertEquals(parser.getDelimeter(),delimeter);
 		}
 
 		@Test
 		public void SetFilterLevel() {
-			String level = "DEBUG";
-			ParserFileProperties parser = new ParserFileProperties(fileName, logName);
-			parser.setFilterLevel(level);
-			assertEquals(parser.getFilterLevel(),enumLevel.DEBUG);
+			
+			ParserDefault parser = new ParserDefault();
+			parser.setFilterLevel("ERROR");
+			assertEquals(parser.getFilterLevel(),enumLevel.ERROR);
 		}
 		
 		@Test
-		public void ParserPropertiesTest() {
-			ParserFileProperties parser = new ParserFileProperties("logger-config.properties", "Juan");
+		public void ParserTest() {
+			ParserDefault parser = new ParserDefault();
 			parser.parser();
 			assertEquals(parser.getFilterLevel(),enumLevel.TRACE);
-			assertEquals(parser.getDelimeter(),"/");
+			assertEquals(parser.getDelimeter(),"-");
 		}
 		
 }
