@@ -31,6 +31,7 @@ public class ParserFileProperties extends ParserFile {
 				try {
 					input.close();
 				} catch (IOException e) {
+					System.err.println("Input-Output Error");
 					e.printStackTrace();
 				}
 			}
