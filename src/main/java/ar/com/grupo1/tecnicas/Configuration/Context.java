@@ -10,12 +10,14 @@ public class Context {
 
 	private String name, nameMethod, fileName, threadName, level, message, datePattern, delimeter, lineNumber;
 	private Hashtable<String, String> data;
-	
+	private int LENGHT = 2;
 	
 	public Context(String name, String level, String message, String datePattern, String delimeter) {
-		this.nameMethod = Thread.currentThread().getStackTrace()[3].getMethodName();
-		this.lineNumber = String.valueOf(Thread.currentThread().getStackTrace()[3].getLineNumber());
-		this.fileName = Thread.currentThread().getStackTrace()[3].getFileName();
+		
+		int stackLevel = Thread.currentThread().getStackTrace().length - LENGHT;
+		this.nameMethod = Thread.currentThread().getStackTrace()[stackLevel].getMethodName();
+		this.lineNumber = String.valueOf(Thread.currentThread().getStackTrace()[stackLevel].getLineNumber());
+		this.fileName = Thread.currentThread().getStackTrace()[stackLevel].getFileName();
 		this.threadName = Thread.currentThread().getName();
 		this.level = level;
 		this.message = message;
