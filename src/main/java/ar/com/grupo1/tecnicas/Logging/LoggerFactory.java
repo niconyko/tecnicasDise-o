@@ -1,7 +1,6 @@
 package ar.com.grupo1.tecnicas.Logging;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import ar.com.grupo1.tecnicas.Target.MultiTargetLogger;
 
@@ -23,22 +22,20 @@ public  class LoggerFactory {
 	}
 	
 	private static int getLoggingIndex(String name){
-		Iterator<MultiTargetLogger> iter = manager.iterator();
 		int index = 0;
-		while(iter.hasNext()){
-			MultiTargetLogger logging = iter.next();
+		for (MultiTargetLogger logging : manager ) {
 			if (logging.getName().equals(name)) {
 				return index;
 			}
 			index++;
 		}
+		
 		return ERROR;
 	}
 	
 	private static MultiTargetLogger getOneLogger(String name){
-		Iterator<MultiTargetLogger> iter = manager.iterator();
-		while(iter.hasNext()){
-			MultiTargetLogger logging = iter.next();
+		
+		for (MultiTargetLogger logging : manager ) {
 			if (logging.getName().equals(name)){
 				return logging;
 			}
@@ -54,9 +51,8 @@ public  class LoggerFactory {
 	}
 	
 	private static boolean containsLog(String name){
-		Iterator<MultiTargetLogger> iter = manager.iterator();
-		while(iter.hasNext()){
-			MultiTargetLogger logging = iter.next();
+		
+		for (MultiTargetLogger logging : manager ) {
 			if (logging.getName().equals(name)){
 				return true;
 			}

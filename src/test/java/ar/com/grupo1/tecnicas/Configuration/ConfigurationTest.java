@@ -10,7 +10,7 @@ import ar.com.grupo1.tecnicas.Configuration.Level.enumLevel;
 public class ConfigurationTest {
 
 	@Test
-	public void SetDelimiter() {
+	public void setDelimiter() {
 		String delimeter = ";";
 		String logName = "Juan";
 		Configuration conf = new Configuration(logName);
@@ -19,7 +19,7 @@ public class ConfigurationTest {
 	}
 
 	@Test
-	public void SetFilterLevel() {
+	public void setFilterLevel() {
 		String logName = "Juan";
 		String level = "TRACE";
 		Configuration conf = new Configuration(logName);

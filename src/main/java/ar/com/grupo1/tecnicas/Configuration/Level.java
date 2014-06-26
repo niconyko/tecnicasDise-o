@@ -16,10 +16,7 @@ public class Level {
 	
 	public boolean isValid(enumLevel otherlevel ){
 		
-		if( level.compareTo(otherlevel) <= 0){
-			return true;			
-		}
-		return false;
+		return ( level.compareTo(otherlevel) <= 0);
 	}
 		
 }

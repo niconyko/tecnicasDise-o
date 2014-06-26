@@ -88,8 +88,8 @@ public class Context {
 			return false;
 		}
 		Context context = (Context) object;
-		return (this.nameMethod == context.getData("%F") && this.lineNumber == getData("%L")
-				&& this.threadName == context.getData("%t") && this.level == context.getData("%p") );	
+		return (this.nameMethod.equals(context.getData("%F")) && this.lineNumber.equals(getData("%L"))
+				&& this.threadName.equals(context.getData("%t")) && this.level.equals(context.getData("%p")));	
 	}
 	
 	@Override

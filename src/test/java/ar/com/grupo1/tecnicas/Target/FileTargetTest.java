@@ -29,8 +29,8 @@ public class FileTargetTest {
 	}
 
 	private String readFileLog(String destination) throws IOException{
-		File archivo = new File (destination);
-		FileReader fr = new FileReader (archivo);
+		File file = new File (destination);
+		FileReader fr = new FileReader (file);
 		BufferedReader br = new BufferedReader(fr);		
 		String line = br.readLine();
 		br.close();
